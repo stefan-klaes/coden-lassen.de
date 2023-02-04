@@ -26,7 +26,7 @@ class Secrets {
             // mail settings
             'mail_host' => 'yourmailhost',
             'mail_address' => 'youraddress',
-            'mail_from_name' => 'Coden Lassen Anfrag',
+            'mail_from_name' => 'Coden Lassen Anfrage',
             'mail_pass' => 'yourpassword',
             'mail_port' => 'yourport',
 
