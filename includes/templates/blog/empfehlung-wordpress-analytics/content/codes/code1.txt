@@ -1,0 +1,12 @@
+?><?php
+
+add_action( 'deine_action', 'deine_funktion' );
+
+function deine_funktion() {
+
+    $data = [];
+    $data["track_type"] = "event"; // event or pageview
+    $data["event_action"] = "yourevent"; // name of the event
+    simple_analytics_track_data($data); // function that saves the event
+
+}

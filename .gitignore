@@ -1,0 +1,5 @@
+# composer
+includes/libs/vendor/
+
+# secrets
+config/secrets.php

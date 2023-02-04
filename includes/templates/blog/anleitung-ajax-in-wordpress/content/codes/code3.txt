@@ -1,0 +1,47 @@
+?><?php
+/*
+ * Shortcode für den javascript part
+ *
+ */
+add_shortcode('berater_anzeigen_js', 'berater_anzeigen_js_function' );
+function berater_anzeigen_js_function(){
+    ob_start();
+    ?>
+    <!-- unser beispiel formular -->
+    <form class="mein-form" action="" method="post">
+        <input type="number" id="postleitzahl" placeholder="PLZ"/>
+        <input type="submit" class="button" value="Berater suchen"/>
+    </form>
+    <div id="berater_antwort"></div>
+	<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // führe eine funktion beim absenden des formulars mit der klasse mein-form aus
+        $(".mein-form").submit(function(e){
+
+            document.getElementById("berater_antwort").innerHTML = "Suche Berater...";
+
+            // verhindere das absenden des formulars
+            e.preventDefault();
+
+            // mache stattdessen folgendes
+            
+            // erhalte den wert des formularfeldes mit der id "postleitzahl"
+            var plz = document.getElementById("postleitzahl").value;
+            var ajax_url = "<?php echo esc_url( admin_url('admin-ajax.php') ) ?>";
+            var data = {
+                'action': 'berater_anzeigen_ajax',
+                'plz': plz,
+                'nonce': '<?php echo esc_html( wp_create_nonce( 'berater_anzeigen_nonce' ) ) ?>',
+            };
+
+            jQuery.post(ajax_url, data, function(response) {
+                document.getElementById("berater_antwort").innerHTML = response;
+            });
+        });
+    });
+	</script>
+    <?php
+    $javascript = ob_get_contents();
+    ob_end_clean();
+    return $javascript;
+}

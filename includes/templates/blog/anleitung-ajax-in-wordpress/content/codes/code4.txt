@@ -1,0 +1,65 @@
+?><?php
+/*
+ * Ajax action "berater_anzeigen_ajax" verarbeiten
+ *
+ */
+ 
+add_action( 'wp_ajax_berater_anzeigen_ajax', 'berater_anzeigen_ajax' ); // for logged in users
+add_action( 'wp_ajax_nopriv_berater_anzeigen_ajax', 'berater_anzeigen_ajax' ); //for not logged in users
+function berater_anzeigen_ajax() {
+
+    // check nonce: sicherheits maßnahme
+    if ( check_ajax_referer( 'berater_anzeigen_nonce', 'nonce', false ) === false  ) {
+        ?>Es ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es erneut.<?php
+        wp_die();
+    }
+
+    // postleitzahl erhalten
+    $plz = isset( $_POST["plz"] ) ? sanitize_text_field( $_POST["plz"] ) : "";
+
+    // wenn plz leer oder offensichtlich falsch, dann fehler
+    if ( $plz == "" ) {
+        ?>keine Postleitzahl angegeben!<?php
+        wp_die();
+    }
+    else if ( strlen($plz) !== 5 && strlen($plz) !== 4 ) {
+        ?>Die Postleitzahl <?php echo esc_html( $plz ) ?> ist ungültig<?php
+        wp_die();
+    }
+
+    // alle test sind bestanden
+    // datenbankabfrage startet
+
+    /*
+     * wir gehen davon aus es gibt eine tabelle mit folgendem aufbau:
+     * name der tabelle: berater_tabelle
+     * spalten: plz, name, telefon, mail
+    */
+
+    // nutze die klasse für die verbindung
+    global $wpdb;
+    $table_name = "berater_tabelle";
+    $sql = $wpdb->prepare("SELECT * FROM $table_name WHERE plz='$plz'");
+    $rows = $wpdb->get_results( $sql );
+    // check ob es mindestens einen treffer gab
+    if ( sizeof($rows) > 0 ) {
+        // angenommen es kann mehrere berater geben loopen wir
+        foreach ( $rows as $row ) {
+            ?>
+            <div>
+                <p>PLZ: <?php echo esc_html($row->plz) ?></p>
+                <p>Name: <?php echo esc_html($row->name) ?></p>
+                <p>Tel.: <?php echo esc_html($row->telefon) ?></p>
+                <p>E-Mail: <?php echo esc_html($row->mail) ?></p>
+            </div>
+            <?php
+        }
+        wp_die();
+    }
+    else {
+        ?>Kein Berater für die PLZ <?php echo esc_html( $plz ) ?> gefunden<?php
+        wp_die();
+    }
+
+	wp_die();
+}

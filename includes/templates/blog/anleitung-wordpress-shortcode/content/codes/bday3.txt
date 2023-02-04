@@ -1,0 +1,32 @@
+?><?php
+/*
+ * Shortcode der das Alter anzeigt
+ * nutze den Shortcode wie folgt: [mein_alter bday="13/01/1993"]
+ *
+ */
+ 
+add_shortcode('mein_alter', 'mein_alter_function' );
+function mein_alter_function($atts,$content = null){
+
+    $attribute = shortcode_atts( array(
+        'bday' => '',
+        ), $atts );
+
+    $age = "";
+    $bday = isset($attribute["bday"]) ? sanitize_text_field($attribute["bday"]) : "";
+    $content = isset($content) ? sanitize_text_field($content) : "";
+    if ( $bday !== "" && $content !== "" ) {
+        $birthDate = explode("/", $bday);
+        $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[1], $birthDate[0], $birthDate[2]))) > date("md")
+            ? ((date("Y") - $birthDate[2]) - 1)
+            : (date("Y") - $birthDate[2]));
+
+        // ersetze den {alter} mit dem richtigen Alter
+        $content = str_replace("{alter}", $age, $content);
+        return esc_html($content);
+    }
+    else {
+        return "";
+    }
+    
+}

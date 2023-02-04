@@ -1,0 +1,26 @@
+?><?php
+/*
+ * Javascript in den Footer hinzufügen
+ *
+ */
+add_action ( 'wp_footer', 'codenlassen_ajax_in_footer' );
+function codenlassen_ajax_in_footer() {
+    ?>
+	<script type="text/javascript" >
+    function sag_hallo_javascript_function() {
+        jQuery(document).ready(function($) {
+
+            var ajax_url = "<?php echo esc_url( admin_url('admin-ajax.php') ) ?>";
+            var data = {
+                'action': 'sag_hallo_ajax',
+            };
+
+            jQuery.post(ajax_url, data, function(response) {
+                alert('Antwort aus der PHP Funktion: ' + response);
+            });
+        });
+    }
+    sag_hallo_javascript_function();
+	</script>
+    <?php
+}

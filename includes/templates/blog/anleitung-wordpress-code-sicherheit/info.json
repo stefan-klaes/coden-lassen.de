@@ -1,0 +1,14 @@
+{
+    "headline": "Code sicher in WordPress einbinden",
+    "header_word": "Code Sicherheit",
+    "title": "Sicherheit erhöhen: Wie du deinen WordPress-PHP-Code nach WordPress-Code-Standards einbindest",
+    "meta_desc": "Lerne, wie du deinen WordPress-PHP-Code sicher einbinden kannst, indem du die WordPress-Code-Standards beachtest, wie z.B. esc_html sanitize, Datenbankabfragen und mehr.",
+    "keywords": "WordPress Ajax",
+    "tags": ["Ajax", "Anleitung"],
+    "filter": "Anleitung",
+    "logo": "wordpress-code-standard.svg",
+    "jetzt_anfragen_headline": "Professioneller Code für WordPress benötigt?",
+    "jetzt_anfragen_body": "Schreib mich gern an. Ich programmiere individuelle Plugins für WordPress und Woocommerce nach WordPress Code Standard. Beschreibe einfach dein Vorhaben und ich melde mich bei dir mit einer Einschätzung.",
+    "desc": "5 WordPress PHP Code Beispiele, die zeigen wie wichtig sicherer Code ist und wie gefährlich unsicherer."
+
+}

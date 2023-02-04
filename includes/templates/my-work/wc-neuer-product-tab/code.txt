@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * Autor:       www.coden-lassen.de
+ * Code:        Neuer Product Daten Tab in Woocommerce
+ * Einbidung:   copy paste in die functions.php des childthemes
+ **/
+
+/* START copy from here for functions.php */
+
+
+/* neuer tab innerhalb der produkt bearbeiten seite */
+add_filter( 'woocommerce_product_data_tabs', 'codenlassen_product_new_tab', 10, 1 );
+function codenlassen_product_new_tab( $default_tabs ) {
+    $default_tabs['product_codenlassen_tab'] = array(
+        'label'   =>  'Neuer Tab',
+        'target'  =>  'codenlassen_product_new_data',
+        'priority' => 900,
+        'class'   => array()
+    );
+    return $default_tabs;
+}
+
+add_action( 'woocommerce_product_data_panels', 'codenlassen_product_new_data' );
+
+function codenlassen_product_new_data() {
+   ?><div id="codenlassen_product_new_data" class="panel woocommerce_options_panel"><?php
+   codenlassen_woocommerce_product_custom_fields()
+   ?></div><?php
+}
+
+
+
+/* new felder in admin product page */
+function codenlassen_woocommerce_product_custom_fields() {
+
+    global $woocommerce, $post;
+    ?>
+    <p class="form-field">
+    <div class="product_custom_field"><?php
+    woocommerce_wp_select( array(
+        'id'          => 'codenlassen_ja_nein',
+        'label'       => 'Ja oder Nein?',
+        'description' => 'Soll mit diesem Produkt etwas passieren?',
+        'desc_tip'    => true,
+        'options'     => array(
+            ''        => 'auswählen',
+            'ja'    => 'Ja',
+            'nein' => 'Nein',
+        )
+    ) );
+    ?></div>
+
+<div class="product_custom_field"><?php
+    woocommerce_wp_textarea_input(
+        array(
+            'id' => 'codenlassen_merkmal_text',
+            'placeholder' => 'z.B. hallo',
+            'label' => 'Dein Text',
+            'description' => 'Schreib deinen Text hier.',
+            'desc_tip'    => true,
+        )
+    );
+
+    ?></div>
+
+    
+    <div class="product_custom_field"><?php
+    woocommerce_wp_textarea_input(
+        array(
+            'id' => 'codenlassen_langer_text',
+            'placeholder' => 'sehr langer Text',
+            'label' => 'Langer Text',
+            'description' => 'Hier kann viel Text eingefügt werden.',
+            'desc_tip'    => true,
+        )
+    );
+
+    ?></div>
+    
+        <?php
+
+}
+
+
+
+/* save custom product field */
+add_action('woocommerce_process_product_meta', 'codenlassen_save_new_produkt_felder');
+function codenlassen_save_new_produkt_felder($post_id) {
+
+	$neue_felder = [];
+	$neue_felder[] = "codenlassen_ja_nein";
+	$neue_felder[] = "codenlassen_merkmal_text";
+	$neue_felder[] = "codenlassen_langer_text";
+
+	foreach ( $neue_felder as $feld ) {
+		$dieses_feld = isset($_POST[$feld]) ? sanitize_text_field($_POST[$feld]) : "";
+		update_post_meta($post_id, $feld, $dieses_feld);
+	}
+
+    
+}
+
+
+/* END copy from here for functions.php */
+
