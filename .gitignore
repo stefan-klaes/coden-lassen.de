@@ -2,4 +2,4 @@
 includes/libs/vendor/
 
 # secrets
-config/secrets.php
+secrets/live_secrets.php

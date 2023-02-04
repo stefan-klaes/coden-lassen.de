@@ -3,10 +3,24 @@
  * defined core functions to run the site smoothly
  */
 
-include 'config/secrets.php';
 include 'config/config.php';
 include 'includes/functions/tracking.php';
 include 'includes/functions/mailer.php';
+
+// include secrets
+$dir = 'secrets';
+$files = scandir($dir);
+
+foreach($files as $file) {
+    if ($file == 'index.php') {
+        continue;
+    }
+    $secretspath = $dir . '/' . $file;
+    if (is_file($secretspath)) {
+        require_once $secretspath;
+        break;
+    }
+}
 
 class Core {
 
