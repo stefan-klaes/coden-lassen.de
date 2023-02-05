@@ -4,7 +4,6 @@
  */
 
 include 'config/config.php';
-include 'includes/functions/tracking.php';
 include 'includes/functions/mailer.php';
 
 // include secrets
