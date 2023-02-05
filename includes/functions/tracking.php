@@ -1,6 +1,6 @@
 <?php
 /**
- * simple analytics tracking function to track:
+ * function to track:
  * pageviews, interactions
  * 
  */
