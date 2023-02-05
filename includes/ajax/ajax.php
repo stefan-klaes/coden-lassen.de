@@ -2,6 +2,7 @@
 $document_root = $_SERVER['DOCUMENT_ROOT'];
 include $document_root . '/includes/functions/functions.php';
 include $document_root . '/includes/functions/tracking.php';
+include $document_root . '/includes/functions/core.php';
 
 global $request_url;
 $request_url_full = $request_url;
@@ -9,9 +10,9 @@ $request_url_full = $request_url;
 
 $type = isset($_GET["type"]) ? $_GET["type"] : "";
 
-
+$coreInstance = new Core();
 if ( $type == "plz" ) {
-    tracking($request_url_full,'event','plz test');
+    $coreInstance->tracking($request_url_full,'event','plz test');
     $plz = isset($_GET["plz"]) ? $_GET["plz"] : "";
     ?>
     <a href="/kontakt" class="leistung_card" style="margin-left:0px;margin-top:20px;">
@@ -47,7 +48,7 @@ if ( $type == "plz" ) {
     <?php
 }
 else {
-    tracking($request_url_full,'event','plugin description');
+    $coreInstance->tracking($request_url_full,'event','plugin description');
     $website = isset($_GET["website"]) ? $_GET["website"] : "[gib deine Autor URI an]";
     $plugin_name = isset($_GET["plugin_name"]) ? $_GET["plugin_name"] : "[Gib einen Plugin Namen an]";
     $author = isset($_GET["author"]) ? $_GET["author"] : "[Gib den Namen des Autors an]";
