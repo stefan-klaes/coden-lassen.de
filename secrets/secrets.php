@@ -12,16 +12,16 @@ class Secrets {
         $secrets = [
 
             //local databsse
-            'db_host' => 'localhost',
-            'db_user' => 'root',
-            'db_password' => '',
-            'db_name' => 'databse_name',
+            'local_db_host' => 'localhost',
+            'local_db_user' => 'root',
+            'local_db_password' => '',
+            'local_db_name' => 'databse_name',
 
             // live database
-            'local_db_host' => 'yourhost',
-            'local_db_user' => 'youruser',
-            'local_db_password' => 'yourpassword',
-            'local_db_name' => 'yourdbname',
+            'db_host' => 'yourhost',
+            'db_user' => 'youruser',
+            'db_password' => 'yourpassword',
+            'db_name' => 'yourdbname',
 
             // mail settings
             'mail_host' => 'yourmailhost',

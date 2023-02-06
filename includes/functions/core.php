@@ -309,7 +309,9 @@ class Core {
         $secretsInstance = new Secrets();
         $secrets = $secretsInstance->getSecrets();
 
-        if ( strpos($_SERVER['DOCUMENT_ROOT'],'C:/') == 0 ) {
+        $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        if ( strpos($current_url,'localhost') > -1 ) {
             global $config;
             if ( isset($config['local_tracking']) && $config['local_tracking'] == true ) {
                 $dbhost = $secrets["local_db_host"];
@@ -328,9 +330,13 @@ class Core {
             $dbname = $secrets["db_name"];
         }
 
-        $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or '';
+        try {
+            $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+        } catch (PDOException $e) {
+            $pdo = 'Verbindung local fehlgeschlagen: ' . $e->getMessage();
+        }
         
-        return $conn;
+        return $pdo;
 
     }
 
@@ -358,9 +364,9 @@ public function tracking($request_url_full,$type,$event) {
     }
     else {
 
-        $conn = $this->db_connect();
+        $pdo = $this->db_connect();
 
-        if ($conn !== '') {
+        if ($pdo !== '') {
 
             $request_url_full = "/" . $request_url_full;
 
@@ -377,12 +383,28 @@ public function tracking($request_url_full,$type,$event) {
             $session = session_id();
             $para = $url_para_string;
 
+            $seite = str_replace('//', '/', $seite);
+            $referrer = str_replace('//', '/', $referrer);
 
             $sql = "INSERT INTO tracking (datum, type, seite, referrer, session, event, para) 
-            VALUES ('$datum', '$type', '$seite', '$referrer', '$session', '$event', '$para')";
+                VALUES (:datum, :type, :seite, :referrer, :session, :event, :para)";
 
-            $save = $conn->query($sql);
-            $conn->close();
+            $stmt = $pdo->prepare($sql);
+
+            $data = [
+                'datum' => $datum,
+                'type' => $type,
+                'seite' => $seite,
+                'referrer' => $referrer,
+                'session' => $session,
+                'event' => $event,
+                'para' => $para
+            ];
+
+            $stmt->execute($data);
+
+            $pdo = null;
+
         }
     }
 }
@@ -391,9 +413,9 @@ public function tracking($request_url_full,$type,$event) {
 
 public function track_page_view($request_url) {
 
-    $conn = $this->db_connect();
+    $pdo = $this->db_connect();
 
-    if ($conn !== '') {
+    if ($pdo !== '') {
         $referrer = isset($_GET["referrer"]) ? $_GET["referrer"] : "";
         $type = isset($_GET["type"]) ? $_GET["type"] : "pageview";
         $event = isset($_GET["event"]) ? $_GET["event"] : "";
@@ -426,16 +448,33 @@ public function track_page_view($request_url) {
         $datum = strip_tags($datum);
         $type = strip_tags($type);
         $seite = strip_tags($seite);
+        $seite = str_replace('//', '/', $seite);
         $referrer = strip_tags($referrer);
+        $referrer = str_replace('//', '/', $referrer);
         $session = strip_tags($session);
         $event = strip_tags($event);
         $para = strip_tags($para);
 
-        $sql = "INSERT INTO tracking (datum, type, seite, referrer, session, event, para) 
-            VALUES ('$datum', '$type', '$seite', '$referrer', '$session', '$event', '$para')";
 
-        $save = $conn->query($sql);
-        $conn->close();
+        $sql = "INSERT INTO tracking (datum, type, seite, referrer, session, event, para) 
+        VALUES (:datum, :type, :seite, :referrer, :session, :event, :para)";
+
+        $stmt = $pdo->prepare($sql);
+
+        $data = [
+            'datum' => $datum,
+            'type' => $type,
+            'seite' => $seite,
+            'referrer' => $referrer,
+            'session' => $session,
+            'event' => $event,
+            'para' => $para
+        ];
+
+        $stmt->execute($data);
+
+        $pdo = null;
+
     }
 
     header('Content-Type: image/gif');

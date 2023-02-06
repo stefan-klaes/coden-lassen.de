@@ -3,7 +3,6 @@ session_start();
 include 'includes/functions/functions.php';
 include 'includes/functions/core.php';
 
-
 $startInstance = new Core();
 
 // access global variables
