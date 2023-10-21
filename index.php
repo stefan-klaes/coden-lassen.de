@@ -14,6 +14,8 @@ $config = $startInstance->getConfig();
 $startInstance->renderPage();
 
 /**
+ * version 2.0.0
+ * 
  * to run locally use
  * 
  * php -S localhost:8000

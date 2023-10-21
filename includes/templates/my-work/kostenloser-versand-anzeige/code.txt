@@ -26,8 +26,15 @@ add_action( 'woocommerce_after_cart_totals', 'codenlassen_free_shipping' );
 function codenlassen_free_shipping() {
  
     $free_shipping_ab = 99; // dein Wert
+
+    $shipping_total = WC()->cart->get_shipping_total();
+
+    if ( !isset($shipping_total) || !is_numeric($shipping_total)) {
+        $shipping_total = 1;
+      }
+      
     
-    if ( $free_shipping_ab > 0 ) {
+    if ( $free_shipping_ab > 0 && $shipping_total > 0 ) {
     
         $cart_total = WC()->cart->subtotal;
         $fehlt_betrag = $free_shipping_ab - $cart_total;
