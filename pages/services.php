@@ -3,7 +3,7 @@
  * 
  * @route: path="/leistungen" name="leistungen"
  * @headline: Leistungen
- * @seotitle: eistungen als WordPress Entwickler
+ * @seotitle: Leistungen als WordPress Entwickler
  * @seodesc: Leistungen als WordPress Entwickler - WordPress plugins, code und individuelle Entwicklungen
  * @seokeywords: wordpress Entwickler
  * 

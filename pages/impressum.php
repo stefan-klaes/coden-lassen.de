@@ -17,7 +17,7 @@
 
         <h1>Impressum</h1>
         <h2>Angaben gemäß § 5 TMG</h2>
-        <p>Stefan Klaes<br>coden lassen<br>Danziger Str. 2B<br>21465 Wentorf bei Hamburg</p>
+        <p>Stefan Klaes<br>coden lassen<br>Alter Kirchweg 5<br>27404 Elsdorf</p>
         <h2>Kontakt</h2>
         <p>E-Mail: stefan@coden-lassen.de</p>
         <h2>Redaktionell Verantwortlicher</h2>

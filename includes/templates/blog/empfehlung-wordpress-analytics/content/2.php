@@ -9,4 +9,4 @@ auf ein Kerntracking fokussiert und die Daten auf dem eigenen Server speichert -
 Datenbank für WordPress enthält.
 </p>
 
-<img style="width:100%;max-width:500px;" src="/includes/templates/blog/empfehlung-wordpress-analytics/imgs/banner.png"/>
+<img style="width:100%;max-width:500px;" src="/includes/templates/my-work/plugin-simplest-analytics/imgs/installiere-simplest-analytics.png"/>
