@@ -6,6 +6,6 @@
     "meta_desc": "WordPress Webanalytics Plugin, das die Daten auf dem eigenen Server speichert.",
     "keywords": "WordPress Webanalytics Plugin",
     "wordpress": "https://wordpress.org/plugins/simplest-analytics",
-    "github": "https://github.com/stefan-coden-lassen/stefan-coden-lassen/tree/main/wordpress-plugins/simplest-analytics",
+    "github": "https://github.com/stefan-klaes/simplest-analytics-wordpress-plugin",
     "desc": "Plugin, das direkt im WordPress Backend installiert werden kann und welches Webanalytics zur Verfügung stellt. Gemessen wird dabei cookieless und auf dem eigenen Server."
 }

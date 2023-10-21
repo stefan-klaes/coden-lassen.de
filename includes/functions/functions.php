@@ -131,7 +131,13 @@ function get_all_codesnippets() {
             $info_json["file_name"] = $folder;
             $info_json["code"] = $code;
             $info_json["path"] = $code_snippet_folder . $folder;
-            $retun_array[] = $info_json;
+            // if start with plugin- push to top of array
+            if ( substr($folder,0,7) == 'plugin-' ) {
+                array_unshift($retun_array,$info_json);
+            }
+            else {
+                $retun_array[] = $info_json;
+            }
         }
     }
 
