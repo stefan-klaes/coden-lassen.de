@@ -5,21 +5,7 @@
 
 include 'config/config.php';
 include 'includes/functions/mailer.php';
-
-// include secrets
-$dir = 'secrets';
-$files = scandir($dir);
-
-foreach($files as $file) {
-    if ($file == 'index.php') {
-        continue;
-    }
-    $secretspath = $dir . '/' . $file;
-    if (is_file($secretspath)) {
-        require_once $secretspath;
-        break;
-    }
-}
+include 'secrets/secrets.php';
 
 class Core {
 
@@ -333,7 +319,7 @@ class Core {
         try {
             $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
         } catch (PDOException $e) {
-            $pdo = 'Verbindung local fehlgeschlagen: ' . $e->getMessage();
+            $pdo = 'Error: ' . $e->getMessage();
         }
         
         return $pdo;
@@ -360,13 +346,13 @@ public function tracking($request_url_full,$type,$event) {
     $referrer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
     if ( strpos($referrer,"style") > 0 || $request_url_full == "favicon.ico" ) {
-        $no_tracking = "yes";
+        return;
     }
     else {
 
         $pdo = $this->db_connect();
 
-        if ($pdo !== '') {
+        if (isset($pdo)) {
 
             $request_url_full = "/" . $request_url_full;
 
@@ -413,9 +399,17 @@ public function tracking($request_url_full,$type,$event) {
 
 public function track_page_view($request_url) {
 
+    global $config;
+
+    // if tracking not enabled don't do anything
+    if (!isset($config['tracking']) || $config['tracking'] !== true) {
+        return;
+    }
+
     $pdo = $this->db_connect();
 
-    if ($pdo !== '') {
+    if (isset($pdo)) {
+
         $referrer = isset($_GET["referrer"]) ? $_GET["referrer"] : "";
         $type = isset($_GET["type"]) ? $_GET["type"] : "pageview";
         $event = isset($_GET["event"]) ? $_GET["event"] : "";

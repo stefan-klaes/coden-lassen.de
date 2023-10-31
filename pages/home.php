@@ -3,8 +3,8 @@
  * 
  * @route: path="/" name="home"
  * @headline: Home
- * @seotitle: Individuelle WordPress Programmierungen für Agenturen und Webdesigner.
- * @seodesc: Word
+ * @seotitle: WordPress Entwickler und Freelancer
+ * @seodesc: Individuelle WordPress Programmierungen für Agenturen und Webdesigner
  * @seokeywords: wordpress entwickler, wordpress programmierer
  * 
  * navigation data:
