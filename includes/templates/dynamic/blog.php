@@ -137,7 +137,7 @@ ob_start();
         <?php
         if ( $lines_of_code > 2 ) {
             ?>
-            <a target="_blank" href="/snippet-libary/<?php echo $blog_details["file_name"] ?>" class="martop20 btn button_prim_txt">
+            <a target="_blank" href="/raw-code/<?php echo $blog_details["file_name"] ?>" class="martop20 btn button_prim_txt">
                 puren Code anzeigen
                 <?php get_icon("arrow_right",26,"") ?>
             </a>

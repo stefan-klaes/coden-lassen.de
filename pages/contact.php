@@ -28,6 +28,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $betreff = isset($_POST["betreff"]) ? htmlspecialchars( $_POST["betreff"] ) : "";
     $message = isset($_POST["message"]) ? nl2br( strip_tags( $_POST["message"] ) ) : "";
     $datenschutz = isset($_POST["datenschutz"]) ? strip_tags( $_POST["datenschutz"] ) : "";
+    
 
     $is_error = "no";
 
@@ -76,7 +77,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         </script>
         <?php
         
-        $coreInstance->tracking($request_url,'event','failed kontaktanfrage');
+        //$coreInstance->tracking($request_url,'event','failed kontaktanfrage');
     }
     else {
         // formular erfolgreich abgeschickt
@@ -89,7 +90,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         $reply_to_name = $name;
         sendMail($to, $subject, $message, $reply_to, $reply_to_name);
 
-        $coreInstance->tracking($request_url,'event','kontaktanfrage');
+        //$coreInstance->tracking($request_url,'event','kontaktanfrage');
         // END formular erfolgreich abgeschickt
     }
 

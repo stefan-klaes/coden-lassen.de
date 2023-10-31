@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Autor:       www.coden-lassen.de
+ * Code:        Anzeige für den kostenlosen Versand im Warenkorb
+ * Einbidung:   copy paste in die functions.php des childthemes
+**/
+
+ /* START copy from here for functions.php */
+ 
+ /* german market placeholder hinzufügen */
+add_filter( 'wp_wc_invoice_pdf_placeholders', 'codenlassen_my_placeholder' );
+function codenlassen_my_placeholder( $placeholders ) {
+
+    $placeholders['skonto-3'] = '';
+    return $placeholders;   
+
+}
+
+
+add_filter( 'wp_wc_invoice_pdf_placeholder_skonto-3', 'codenlassen_skonto_platzhalter', 10, 3 );
+function codenlassen_skonto_platzhalter( $value, $key, $order ) {
+
+    $ret = "";
+    if ( is_a( $order, 'WC_Order' ) ) {
+        $wc_price_args = array();
+        if ( WGM_Helper::method_exists( $order, 'get_currency' ) ) {
+            $wc_price_args['currency'] = $order->get_currency();
+        }
+        $order_total = $order->get_total();
+        $ret = wc_price( $order_total*0.97, $wc_price_args );
+    }
+
+    return $ret;
+
+}
+
+/* END copy from here for functions.php */
