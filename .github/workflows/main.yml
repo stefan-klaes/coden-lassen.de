@@ -13,3 +13,7 @@ jobs:
         server: w01ad1bd.kasserver.com
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          readme.md
