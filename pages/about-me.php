@@ -3,7 +3,7 @@
  * 
  * @route: path="/wordpress-freelancer" name="ueber-mich"
  * @headline: Freelancer
- * @seotitle: WordPress Referenzen
+ * @seotitle: WordPress Freelancer - Stefan Klaes
  * @seodesc: WordPress Freelancer - Entwicklung indidueller Plugins, Anpassungen am Code, Styling und vieles mehr.
  * @seokeywords: WordPress Freelancer
  * 
