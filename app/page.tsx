@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>Hell World</div>;
+  return <div>Hell World!</div>;
 }
