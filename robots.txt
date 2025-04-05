@@ -1,6 +1,0 @@
-User-agent: Googlebot
-
-User-agent: *
-Allow: /
-
-Sitemap: https://www.coden-lassen.com/sitemap.xml

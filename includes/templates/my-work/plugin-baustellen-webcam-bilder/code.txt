@@ -1,2 +1,0 @@
-<?php
-/* Der Code wurde individuell für einen Kunden erstellt und kann nicht öffentlich geteilt werden. */

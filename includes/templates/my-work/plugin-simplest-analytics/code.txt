@@ -1,2 +1,0 @@
-<?php
-/* den code findest du auf WordPess.org und das Plugin kann über das WordPress Backend heruntergladen werden. */
