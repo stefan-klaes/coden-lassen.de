@@ -20,4 +20,5 @@ export type ProjectDetails = {
 
 export const PROJECT_DETAILS: Partial<Record<ProjectSlug, ProjectDetails>> = {
   werkstattauftrag: details.werkstattauftrag,
+  "job-synchronisation": details.jobSynchronisation,
 };

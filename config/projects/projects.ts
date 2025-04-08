@@ -22,7 +22,7 @@ export const PROJECTS = [
   {
     name: "Job Synchronisation",
     slug: "job-synchronisation",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/sync-job-button.webp",
     description: "Synchronisation von Job-Daten mit externem Dienst",
     excerpt:
       "Automatisieren Sie die Synchronisation von Job-Daten mit externen Diensten. Perfekt für Unternehmen, die ihre Daten stets aktuell halten möchten.",
@@ -32,7 +32,7 @@ export const PROJECTS = [
   {
     name: "Werkstattauftrag & neue E-Mails",
     slug: "werkstattauftrag",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/werkstattauftrag-plugin-symbol.webp",
     description: "PDF Generierung für Produktionsaufträge",
     excerpt:
       "Erstellung eines Plugins für eine Manufaktur mit eigener Produktion. Eine Funktion des Plugins war es aus den Inhalten der Bestellungen ein PDF zu erstellen, welches die Manufaktur für die Abarbeitung genutzt hat.",

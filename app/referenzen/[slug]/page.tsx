@@ -8,6 +8,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { MarkdownRenderer } from "@/components/utility/markdown-renderer";
 
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -26,12 +27,13 @@ export default async function ReferenzPage({
   const projectDetails = project
     ? PROJECT_DETAILS[slug as keyof typeof PROJECT_DETAILS]
     : null;
+
   if (!project || !projectDetails) {
     notFound();
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-24">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
         <div className="flex flex-col justify-center space-y-4">
           <Typography variant="h1">{project.name}</Typography>
@@ -44,33 +46,38 @@ export default async function ReferenzPage({
             ))}
           </div>
         </div>
-        <div className="flex justify-center lg:justify-end h-full">
-          <div className="h-full relative overflow-hidden rounded-lg shadow-xl">
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={1600}
-              height={900}
-              className="w-full h-full object-contain object-center"
-              priority
-              quality={100}
-            />
-          </div>
+        <div className="flex items-start justify-center lg:justify-end h-full">
+          <Image
+            src={project.image}
+            alt={project.name}
+            width={1600}
+            height={900}
+            className="w-full max-w-[320px] mx-auto"
+            priority
+            quality={100}
+          />
         </div>
       </div>
-      <div>
-        <Typography variant="h2">Aufgabe</Typography>
-        <Typography variant="lead">{projectDetails.task}</Typography>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <Typography variant="h2">Aufgabe</Typography>
+          <MarkdownRenderer content={projectDetails?.task || ""} />
+        </div>
+        <div>
+          <Typography variant="h2">Lösung</Typography>
+          <MarkdownRenderer content={projectDetails?.solution || ""} />
+        </div>
       </div>
-      <div>
-        <Typography variant="h2">Lösung</Typography>
-        <Typography variant="lead">{projectDetails.solution}</Typography>
-      </div>
-      <div className="space-y-6">
+      <div className="space-y-24">
         {projectDetails.screenshots ? (
-          <div className="w-full max-w-screen-lg space-y-4">
+          <div className="w-full max-w-screen-lg space-y-12">
             {projectDetails.screenshots.map((screenshot, i) => (
               <div key={i} className="relative">
+                {screenshot.description ? (
+                  <p className="mb-2 text-sm text-muted-foreground">
+                    {screenshot.description}
+                  </p>
+                ) : null}
                 <Screenshot url={screenshot.url} src={screenshot.src} />
               </div>
             ))}
@@ -80,7 +87,11 @@ export default async function ReferenzPage({
           <div className="space-y-6">
             {projectDetails.code.map((item, i) => (
               <div key={i}>
-                <p className="mb-6 leading-relaxed">{item.description}</p>
+                {item.description ? (
+                  <p className="mb-2 text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
+                ) : null}
                 <div className="rounded-lg overflow-hidden shadow-sm border">
                   <div className="px-4 py-2 flex items-center gap-2 border-b">
                     <Code className="h-4 w-4" />

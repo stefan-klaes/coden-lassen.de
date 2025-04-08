@@ -128,7 +128,7 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
                       src={project.image || "/placeholder.svg"}
                       alt={project.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="(max-width: 768px) 100vw, 25vw"
                     />
                   </div>

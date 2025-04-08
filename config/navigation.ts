@@ -18,7 +18,7 @@ export const MAIN_NAVIGATION = [
   },
   {
     title: "Über mich",
-    url: "/ueber-mich",
+    url: "/wordpress-freelancer",
     icon: SquareUserRoundIcon,
   },
   {
