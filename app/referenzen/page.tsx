@@ -17,6 +17,9 @@ export default function ProjectsPage() {
       </div>
 
       <ProjectsList projects={PROJECTS} />
+      <p className="text-muted-foreground italic">
+        Ja, alle Bilder sind Ai generiert :D
+      </p>
     </section>
   );
 }

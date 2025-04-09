@@ -9,11 +9,36 @@ import { notFound } from "next/navigation";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { MarkdownRenderer } from "@/components/utility/markdown-renderer";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  // Find the project data
+  const project = PROJECTS.find((p) => p.slug === slug);
+
+  // If project doesn't exist, return basic metadata
+  if (!project) {
+    return {
+      title: "Projekt nicht gefunden",
+      description: "Die angeforderte Referenz existiert nicht.",
+    };
+  }
+
+  return {
+    title: `Referenz | ${project.name}`,
+    description: project.description,
+  };
 }
 
 export default async function ReferenzPage({
@@ -52,7 +77,7 @@ export default async function ReferenzPage({
             alt={project.name}
             width={1600}
             height={900}
-            className="w-full max-w-[320px] mx-auto"
+            className="w-full max-w-[320px] mx-auto rounded shadow-2xl"
             priority
             quality={100}
           />

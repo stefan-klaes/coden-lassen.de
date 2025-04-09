@@ -110,36 +110,37 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
         <div className="text-center py-8">
           <Typography variant="h3">Keine Projekte gefunden</Typography>
           <p className="text-muted-foreground mt-2">
-            Bitte versuchen Sie es mit anderen Suchbegriffen oder Filtern.
+            Bitte versuche es mit anderen Suchbegriffen oder Filtern.
           </p>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredProjects.map((project, i) => (
             <Link
               key={i}
               href={`/referenzen/${project.slug}`}
               className="block"
             >
-              <div className="flex flex-col md:flex-row gap-6 border-b transition-all bg-background hover:bg-muted hover:border-accent-foreground border rounded">
-                <div className="w-full md:w-1/4 flex-shrink-0">
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.name}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                    />
-                  </div>
+              <div className="w-full h-full overflow-hidden rounded border">
+                <div className="relative aspect-[1/1] w-full overflow-hidden rounded">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.name}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
                 </div>
 
                 <div className="flex-1 space-y-4 p-2 md:p-4">
                   <div>
-                    <Typography variant="h2" className="text-2xl lg:text-2xl">
+                    <Typography
+                      variant="h2"
+                      className="text-2xl lg:text-2xl line-clamp-1"
+                    >
                       {project.name}
                     </Typography>
-                    <p className="mt-2 text-muted-foreground line-clamp-3">
+                    <p className="mt-2 text-muted-foreground line-clamp-4">
                       {project.excerpt}
                     </p>
                   </div>

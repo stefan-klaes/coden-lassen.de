@@ -12,7 +12,7 @@ export const PROJECTS = [
   {
     name: "PDF Etiketten",
     slug: "pdf-etiketten",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/wordpress-plugin-labeldrucker.webp",
     description: "Etikettenerstellung für Labeldrucker als PDF",
     excerpt:
       "Erstellen Sie professionelle Etiketten als PDF für Labeldrucker. Ideal für Unternehmen, die eine einfache und effiziente Lösung für den Etikettendruck benötigen.",
@@ -22,7 +22,7 @@ export const PROJECTS = [
   {
     name: "Job Synchronisation",
     slug: "job-synchronisation",
-    image: "/sync-job-button.webp",
+    image: "/wordpress-cronjob-sync.webp",
     description: "Synchronisation von Job-Daten mit externem Dienst",
     excerpt:
       "Automatisieren Sie die Synchronisation von Job-Daten mit externen Diensten. Perfekt für Unternehmen, die ihre Daten stets aktuell halten möchten.",
@@ -32,7 +32,7 @@ export const PROJECTS = [
   {
     name: "Werkstattauftrag & neue E-Mails",
     slug: "werkstattauftrag",
-    image: "/werkstattauftrag-plugin-symbol.webp",
+    image: "/wordpress-individuelle-pdf.webp",
     description: "PDF Generierung für Produktionsaufträge",
     excerpt:
       "Erstellung eines Plugins für eine Manufaktur mit eigener Produktion. Eine Funktion des Plugins war es aus den Inhalten der Bestellungen ein PDF zu erstellen, welches die Manufaktur für die Abarbeitung genutzt hat.",
@@ -42,7 +42,7 @@ export const PROJECTS = [
   {
     name: "Bild Generierung",
     slug: "bild-generierung",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/wordpress-thumbnail-creator.webp",
     description: "Automatische Bildgenerierung für Stellenbeschreibungen",
     excerpt:
       "Erstellen Sie automatisch Bilder für Stellenbeschreibungen. Diese Funktion spart Zeit und sorgt für ein professionelles Erscheinungsbild.",
@@ -52,7 +52,7 @@ export const PROJECTS = [
   {
     name: "Webcambilder als Zeitraffer",
     slug: "bild-generierung",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/zeitraffer-webcam.webp",
     description: "Video-Generierung aus Webcambildern",
     excerpt:
       "Individuelle WordPress Programmierung, die Webcambilder von Baustellen filterbar nach Datum und Zeitraffer anzeigen.",
@@ -62,7 +62,7 @@ export const PROJECTS = [
   {
     name: "Weitere Bestell-Mails",
     slug: "bestellemails",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/woocommerce-individuelle-emails.webp",
     description: "Email-Versand an Lieferanten",
     excerpt:
       "Automatisieren Sie den Versand von Bestell-Mails an Lieferanten. Eine effiziente Lösung für die Kommunikation in der Lieferkette.",
@@ -72,7 +72,7 @@ export const PROJECTS = [
   {
     name: "Racechip API Fahrzeugwahl",
     slug: "racechip-api-fahrzeugwahl",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/wordpress-auto-api.webp",
     description: "Anzeige von Fahrzeugdaten über die Racechip API",
     excerpt:
       "WordPress Plugin, welches auf die Fahrzeugdaten der Racechip API zugreift und die entsprechenden Leistungen anzeigt.",
@@ -82,16 +82,26 @@ export const PROJECTS = [
   {
     name: "Verknüpfung Ticketsystem",
     slug: "ticketsystem",
-    image: "/wordpress-entwickler-profile-image.png",
+    image: "/wordpress-api-ticketsystem.webp",
     description: "Formularanfragen an Ticketsystem übermitteln",
     excerpt:
       "Verbinden Sie Ihr Formular mit einem Ticketsystem, um Anfragen effizient zu verwalten. Ideal für Unternehmen mit hohem Supportaufkommen.",
     emoji: "🎫",
     tags: ["API", "Formular"],
   },
+  {
+    name: "Versandkostenfrei Fortschritt",
+    slug: "versandkostenfrei",
+    image: "/wordpress-warenkorb-versandkostenfrei.webp",
+    description: "Versandkostenfrei Fortschritt im Warenkorb anzeigen",
+    excerpt:
+      "Zeigen Sie den Fortschritt zu einem versandkostenfreien Warenkorb an. Eine einfache Lösung, um Kunden zu motivieren, mehr zu kaufen.",
+    emoji: "🎫",
+    tags: ["Woocommerce", "Versand"],
+  },
 ] as const;
 
 export type Project = (typeof PROJECTS)[number];
 
-const PROJECT_SLUGS = PROJECTS.map((project) => project.slug);
+export const PROJECT_SLUGS = PROJECTS.map((project) => project.slug);
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
