@@ -1,30 +1,36 @@
 import { ProjectDetails } from "../project-details";
 
 const CONFIG: ProjectDetails = {
-  task: `**Individuelles WooCommerce-Plugin für die Manufaktur**
+  task: `Individuelles WooCommerce-Plugin für die Manufaktur. Ziel war die Entwicklung eines robusten Tools zur Verwaltung und Abwicklung komplexer Produktions- und Versandprozesse, inklusive Spezialdokumenten und individueller Produktlogik. Zu den Umsetzungsschwerpunkten gehörten die Werkstattauftragserstellung direkt im WooCommerce-Backend, Etikettendruck nach Artikelnummer (z. B. für Gürtellängen), Dokumentenmanagement (Lieferschein, Auftragsbestätigung, Etiketten), Produktkonfiguration im Backend mit Feldauswahl und Aufschlagsberechnung sowie ein Tab "Extra PDF" im Produktbearbeitungsbereich.`,
 
-Ziel war die Entwicklung eines robusten Tools zur Verwaltung und Abwicklung komplexer Produktions- und Versandprozesse, inklusive Spezialdokumenten und individueller Produktlogik.
+  challenges: [
+    "Integration in bestehende WooCommerce-Strukturen",
+    "Komplexe PDF-Generierung mit dynamischen Inhalten",
+    "Produktspezifische Preislogik und Aufschlagsberechnung",
+    "Nahtlose Verbindung von Bestell- und Produktionsprozessen",
+  ],
 
-**Umsetzungsschwerpunkte:**
-- Werkstattauftragserstellung direkt im WooCommerce-Backend
-- Etikettendruck nach Artikelnummer (z. B. für Gürtellängen)
-- Dokumentenmanagement (Lieferschein, Auftragsbestätigung, Etiketten)
-- Produktkonfiguration im Backend mit Feldauswahl und Aufschlagsberechnung
-- Tab "Extra PDF" im Produktbearbeitungsbereich`,
+  outcomes: [
+    "Optimierter Werkstattprozess mit automatisierter Dokumenterstellung",
+    "Reduzierte Fehlerquote durch systemgesteuerte Abläufe",
+    "Zeitersparnis bei der Bearbeitung von Spezialbestellungen",
+    "Höhere Kundenzufriedenheit durch präzise Fertigungsunterlagen",
+  ],
 
-  solution: `**Modulares Plugin mit Versionierung und DOMPDF-Integration**
+  solution: `Für die Manufaktur wurde ein modulares Plugin mit Versionierung und DOMPDF-Integration entwickelt. Die Lösung ermöglicht PDF-Generierung on-the-fly ohne Dateispeicherung für verschiedene Dokumente, implementiert intelligente Versandlogik mit Trigger-Funktionen und bietet einen spezialisierten Etikettendruck. Durch erweiterte Backend-Funktionalitäten wie individuelle Produkt-Tabs und kundenspezifische Preisberechnungen wird der gesamte Produktionsprozess digital abgebildet. Das stabile und wartbare Plugin wird kontinuierlich weiterentwickelt und optimiert die realen Abläufe in Produktion und Versand.`,
 
-Für die Manufaktur entstand ein maßgeschneidertes Plugin mit folgenden Funktionen:
+  technologies: [
+    "PHP",
+    "WordPress",
+    "WooCommerce",
+    "DOMPDF",
+    "JavaScript",
+    "CSS",
+    "MySQL",
+  ],
 
-- **PDF-Generierung on-the-fly** (Werkstattauftrag, Lieferschein, Auftragsbestätigung, Etiketten) via DOMPDF – ohne Dateispeicherung
-- **Versandlogik & Trigger im WooCommerce Backend**, inkl. Logging in Order Notes
-- **Etikettendruck pro Artikelnummer** für produktspezifische Anforderungen
-- **Produkt-Tabs im Adminbereich** wie „Konfigurator“ und „Extra PDF“ zur individuellen Steuerung
-- **Feldbasierte Preisaufschläge** abhängig von Kundenauswahl (z. B. Bundweite)
-- **Rechnungserweiterungen und Split Order Kompatibilität**
-- **Versioniertes Plugin mit detailliertem Changelog und Maintenance-Prozess**
+  client: "Manufaktur für handgefertigte Produkte",
 
-Das Plugin ist stabil, wartbar und wird kontinuierlich ausgebaut – mit Fokus auf die realen Abläufe in Produktion und Versand.`,
   screenshots: [
     {
       src: "/woocommerce-custom-order-actions.png",

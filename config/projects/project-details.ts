@@ -3,7 +3,11 @@ import * as details from "./details";
 
 export type ProjectDetails = {
   task: string;
+  challenges: string[];
+  outcomes: string[];
   solution: string;
+  technologies: string[];
+  client: string;
   code?: {
     filename: string;
     code: string;
@@ -21,4 +25,11 @@ export type ProjectDetails = {
 export const PROJECT_DETAILS: Partial<Record<ProjectSlug, ProjectDetails>> = {
   werkstattauftrag: details.werkstattauftrag,
   "job-synchronisation": details.jobSynchronisation,
+  "pdf-etiketten": details.pdfEtiketten,
+  "bild-generierung": details.bildGenerierung,
+  "zeitraffer-webcam": details.zeitrafferWebcam,
+  bestellemails: details.bestellemails,
+  "racechip-api-fahrzeugwahl": details.racechipApiFahrzeugwahl,
+  ticketsystem: details.ticketsystem,
+  versandkostenfrei: details.versandkostenfrei,
 };

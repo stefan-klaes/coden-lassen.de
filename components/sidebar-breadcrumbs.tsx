@@ -19,8 +19,10 @@ export default function SidebarBreadcrumbs() {
   return (
     <Breadcrumb>
       <BreadcrumbList>
-        <BreadcrumbItem className="hidden md:block">
-          <Link href="/">Stefan Klaes</Link>
+        <BreadcrumbItem>
+          <Link href="/">
+            Stefan Klaes{slugs.length === 0 ? " - WordPress Entwickler" : ""}
+          </Link>
         </BreadcrumbItem>
         {slugs.map((slug, index) => {
           const isLast = index === slugs.length - 1;
@@ -28,7 +30,7 @@ export default function SidebarBreadcrumbs() {
 
           return (
             <React.Fragment key={slug}>
-              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbSeparator />
               <BreadcrumbItem>
                 {isLast ? (
                   <BreadcrumbPage>

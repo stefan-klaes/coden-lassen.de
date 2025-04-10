@@ -26,7 +26,7 @@ export function Typography({
       return (
         <h2
           className={cn(
-            "scroll-m-20 pb-2 text-3xl lg:text-4xl font-semibold tracking-tight",
+            "scroll-m-20 text-3xl lg:text-4xl font-semibold tracking-tight",
             className
           )}
         >

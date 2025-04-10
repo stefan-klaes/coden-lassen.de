@@ -1,5 +1,6 @@
 import Hero from "./components/hero";
-import { References } from "./components/references";
+import { Projects } from "./components/projects";
+import ServiceChips from "./components/service-chips";
 import Services from "./components/services";
 import { Why } from "./components/why";
 
@@ -8,8 +9,9 @@ export default function HomePage() {
     <div className="space-y-32">
       <Hero />
       <Services />
+      <ServiceChips />
       <Why />
-      <References />
+      <Projects />
     </div>
   );
 }

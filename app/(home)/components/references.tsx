@@ -7,11 +7,12 @@ import { Project, PROJECTS } from "@/config/projects/projects";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "@/components/ui/custom-link";
+import Image from "next/image";
 
 let notifications = [...PROJECTS] as Project[];
 notifications = Array.from({ length: 10 }, () => [...PROJECTS]).flat();
 
-const Notification = ({ name, description, emoji }: Project) => {
+const Notification = ({ name, description, image }: Project) => {
   return (
     <figure
       className={cn(
@@ -26,7 +27,13 @@ const Notification = ({ name, description, emoji }: Project) => {
     >
       <div className="flex flex-row items-center gap-3">
         <div className="flex items-center">
-          <span className="text-2xl">{emoji}</span>
+          <Image
+            src={image}
+            alt={name}
+            height={120}
+            width={120}
+            className="size-16"
+          />
         </div>
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white ">

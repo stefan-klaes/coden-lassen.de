@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BadgeCheckIcon } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { CodeIcons } from "@/components/icons/code-icons";
 import { Typography } from "@/components/ui/typography";
 import Link from "@/components/ui/custom-link";
@@ -14,26 +14,38 @@ const CODING_ICONS = [
   { name: "CSS", icon: CodeIcons.css },
 ];
 
-const OFFER_POINTS = [
-  "Individuelle WordPress Themes",
-  "Maßgeschneiderte Plugins",
-  "Performance-Optimierung",
-  "Sicherheit & Updates",
+const CHECK_POINTS = [
+  "...bei komplexen Anpassungen Unterstützung benötigen",
+  "...keine individuellen Programmierungen anbieten",
+  "...aus Kapazitätsgründen Unterstützung suchen",
 ];
 
 export default function Hero() {
   return (
     <section className="w-full">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-        <div className="flex flex-col justify-center space-y-4">
+        <div className="flex flex-col justify-center space-y-4 p-4">
           <Typography variant="h1">
-            Individuelle WordPress-Lösungen für Ihr Unternehmen
+            WordPress Entwickler für individuelle Programmierungen
           </Typography>
           <Typography variant="lead">
-            Maßgeschneiderte Themes, Plugins und Funktionen – entwickelt mit
-            Leidenschaft und technischer Präzision für Ihren einzigartigen
-            Bedarf.
+            Ich programmiere individuelle WordPress Lösungen, die über die
+            Kernfunktionaltät von WordPress hinausgehen.
           </Typography>
+          <div className="space-y-4">
+            <p>
+              <strong>Speziell für:</strong> Webdesigner, Agenturen und
+              Freelancer, die beruflich mit WordPress arbeiten und...
+            </p>
+            <ul className="space-y-2 text-muted-foreground my-8">
+              {CHECK_POINTS.map((point) => (
+                <li key={point} className="flex items-start gap-2">
+                  <CheckCircle className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row">
             <Button asChild>
               <Link href="/kontakt">
@@ -44,19 +56,11 @@ export default function Hero() {
               <Link href="/referenzen">Referenzen ansehen</Link>
             </Button>
           </div>
-          <div className="grid grid-cols-2 gap-4 pt-4">
-            {OFFER_POINTS.map((point, i) => (
-              <div key={i} className="flex items-center space-x-2 p-4">
-                <BadgeCheckIcon className="h-6 w-6 text-muted-foreground" />
-                <span className="text-sm font-medium">{point}</span>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="flex justify-center lg:justify-end h-full">
-          <div className="h-full relative overflow-hidden rounded-lg shadow-xl">
+          <div className="h-full relative overflow-hidden lg:rounded-bl-lg">
             <Image
-              src="/wordpress-entwickler.jpg"
+              src="/wordpress-entwickler-stefan.png" //wordpress-entwickler.jpg
               alt="WordPress Entwickler mit Laptop"
               width={1600}
               height={900}

@@ -73,9 +73,9 @@ $email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : "" ;`,
 
 export function Why() {
   return (
-    <section className="py-12 px-4 md:px-6 lg:px-8">
+    <section className="p-4">
       <div>
-        <div className="text-center mb-12 space-y-2">
+        <div className="mb-12 space-y-2">
           <Typography variant="h2">
             WordPress Entwicklung mit Fokus auf Qualität
           </Typography>
