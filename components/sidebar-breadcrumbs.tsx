@@ -8,6 +8,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Link from "@/components/ui/custom-link";
+import { HomeIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -20,9 +21,25 @@ export default function SidebarBreadcrumbs() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <Link href="/">
-            Stefan Klaes{slugs.length === 0 ? " - WordPress Entwickler" : ""}
-          </Link>
+          {slugs.length > 1 ? (
+            <>
+              <div className="hidden lg:block">
+                <Link href="/">
+                  Stefan Klaes
+                  {slugs.length === 0 ? " - WordPress Entwickler" : ""}
+                </Link>
+              </div>
+              <div className="block lg:hidden">
+                <Link href="/">
+                  <HomeIcon className="size-4" />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <Link href="/">
+              Stefan Klaes{slugs.length === 0 ? " - WordPress Entwickler" : ""}
+            </Link>
+          )}
         </BreadcrumbItem>
         {slugs.map((slug, index) => {
           const isLast = index === slugs.length - 1;

@@ -122,7 +122,7 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
               className="block"
             >
               <div className="w-full h-full overflow-hidden rounded border">
-                <div className="relative aspect-[1/1] w-full overflow-hidden rounded">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.name}

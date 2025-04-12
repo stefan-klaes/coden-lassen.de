@@ -18,7 +18,7 @@ export function Projects() {
           und mein Engagement für Qualität unter Beweis stellen.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
         {PROJECTS.slice(0, 8).map((project, i) => (
           <Link
             className="cursor-pointer"

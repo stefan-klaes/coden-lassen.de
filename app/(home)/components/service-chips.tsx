@@ -1,22 +1,16 @@
-import { Typography } from "@/components/ui/typography";
+import IconServices from "@/components/blocks/icon-services";
 import {
   BracesIcon,
   ClockIcon,
   CodeIcon,
   FileTextIcon,
   FolderIcon,
-  LucideIcon,
   MailIcon,
   ShoppingCartIcon,
   SparklesIcon,
 } from "lucide-react";
 
-type ServiceItem = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-};
-const SERVICES: ServiceItem[] = [
+const SERVICES = [
   {
     icon: CodeIcon,
     title: "WordPress Entwicklung",
@@ -67,28 +61,10 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServiceChips() {
   return (
-    <div className="space-y-8 p-4">
-      <Typography variant="h3">Mögliche individuelle Umsetzungen</Typography>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {SERVICES.map((service, index) => (
-          <div key={index} className="flex items-start gap-4">
-            <div className="flex-none size-12 rounded-lg bg-muted ">
-              <div className="flex items-center justify-center size-full">
-                <service.icon className="size-6 text-muted-foreground" />
-              </div>
-            </div>
-            <div className="flex-grow">
-              <h4 className="text-lg font-semibold">{service.title}</h4>
-              <p className="text-sm text-muted-foreground">
-                {service.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <p className="text-sm text-muted-foreground">
-        Weitere Lösungen sind auf Anfrage natürlichs möglich.
-      </p>
-    </div>
+    <IconServices
+      items={SERVICES}
+      title="Mögliche individuelle Umsetzungen"
+      footerNote="Weitere Lösungen sind auf Anfrage natürlichs möglich."
+    />
   );
 }

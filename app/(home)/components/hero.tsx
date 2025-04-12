@@ -58,9 +58,9 @@ export default function Hero() {
           </div>
         </div>
         <div className="flex justify-center lg:justify-end h-full">
-          <div className="h-full relative overflow-hidden lg:rounded-bl-lg">
+          <div className="h-full w-full relative overflow-hidden lg:rounded-bl-lg">
             <Image
-              src="/wordpress-entwickler-stefan.png" //wordpress-entwickler.jpg
+              src="/wordpress-entwickler-stefan-coden-lassen.png" //wordpress-entwickler.jpg
               alt="WordPress Entwickler mit Laptop"
               width={1600}
               height={900}

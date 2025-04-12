@@ -13,8 +13,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Image from "next/image";
-import Link from "@/components/ui/custom-link";
+import SidebarHeaderLogo from "./sidebar-header-logo";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -23,21 +22,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="/">
-                <div className="text-sidebar-primary-foreground flex aspect-square size-10 items-center justify-center rounded-lg">
-                  <Image
-                    src="/wordpress-entwickler-profile-image.png"
-                    alt="WordPress Entwickler"
-                    width={120}
-                    height={120}
-                    className="rounded-full"
-                  />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Stefan Klaes</span>
-                  <span className="truncate text-xs">WordPress Entwickler</span>
-                </div>
-              </Link>
+              <SidebarHeaderLogo />
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
