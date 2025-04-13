@@ -8,11 +8,11 @@ export default function Services() {
         <div className="flex justify-start h-full">
           <div className="aspect-[4/3] lg:aspect-auto h-full relative overflow-hidden">
             <Image
-              src="/leistungen-wordpress-entwickler.png" //"/wordpress-entwickler-leistungen.png"
+              src="/leistungen-wordpress-entwickler.png"
               alt="WordPress Entwickler mit Laptop"
               width={1600}
               height={900}
-              className="w-full h-full object-contain object-left lg:object-cover lg:object-center"
+              className="w-full h-full object-contain object-left lg:object-cover"
               priority
               quality={100}
             />

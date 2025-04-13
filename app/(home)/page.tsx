@@ -1,3 +1,4 @@
+import AnfrageCTA from "@/components/blocks/cta-contact";
 import Hero from "./components/hero";
 import { Projects } from "./components/projects";
 import ServiceChips from "./components/service-chips";
@@ -12,6 +13,7 @@ export default function HomePage() {
       <ServiceChips />
       <Why />
       <Projects />
+      <AnfrageCTA />
     </div>
   );
 }

@@ -28,10 +28,7 @@ export default function Hero() {
           <Typography variant="h1">
             WordPress Entwickler für individuelle Programmierungen
           </Typography>
-          <Typography variant="lead">
-            Ich programmiere individuelle WordPress Lösungen, die über die
-            Kernfunktionaltät von WordPress hinausgehen.
-          </Typography>
+          s{" "}
           <div className="space-y-4">
             <p>
               <strong>Speziell für:</strong> Webdesigner, Agenturen und
@@ -79,7 +76,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="mt-16 flex flex-wrap justify-center gap-6 md:gap-8">
+      <div className="mt-24 flex flex-wrap justify-center gap-6 md:gap-8">
         {CODING_ICONS.map((item) => (
           <div key={item.name} className="flex items-center space-x-2">
             <div className="size-8">{item.icon()}</div>
