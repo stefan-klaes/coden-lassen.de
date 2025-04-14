@@ -66,7 +66,7 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
             <div className="relative w-full">
-              <SearchIcon className="absolute left-2 top-1/2 size-4" />
+              <SearchIcon className="absolute left-2 top-2.5 size-4" />
               <Input
                 placeholder="Projekte durchsuchen..."
                 value={searchQuery}

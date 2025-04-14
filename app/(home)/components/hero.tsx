@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRightIcon, CheckCircle, MoveUpRightIcon } from "lucide-react";
 import { CodeIcons } from "@/components/icons/code-icons";
 import { Typography } from "@/components/ui/typography";
 import Link from "@/components/ui/custom-link";
@@ -28,7 +28,6 @@ export default function Hero() {
           <Typography variant="h1">
             WordPress Entwickler für individuelle Programmierungen
           </Typography>
-          s{" "}
           <div className="space-y-4">
             <p>
               <strong>Speziell für:</strong> Webdesigner, Agenturen und
@@ -46,11 +45,14 @@ export default function Hero() {
           <div className="flex flex-col gap-2 min-[400px]:flex-row">
             <Button asChild>
               <Link href="/kontakt">
-                Projekt anfragen <ArrowRight className="ml-2 h-4 w-4" />
+                Projekt anfragen <MoveUpRightIcon className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" asChild>
-              <Link href="/referenzen">Referenzen ansehen</Link>
+            <Button variant="ghost" asChild>
+              <Link href="/referenzen">
+                Referenzen ansehen
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

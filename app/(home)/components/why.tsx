@@ -3,7 +3,7 @@ import { Code, FileCode, LucideIcon, Shield, Zap } from "lucide-react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Typography } from "@/components/ui/typography";
+import HeadStarter from "@/components/blocks/head-starter";
 
 interface WhyItem {
   title: string;
@@ -75,16 +75,12 @@ export function Why() {
   return (
     <section className="p-4">
       <div>
-        <div className="mb-12 space-y-2">
-          <Typography variant="h2">
-            WordPress Entwicklung mit Fokus auf Qualität
-          </Typography>
-          <Typography variant="lead">
-            Sichere und wartbare WordPress Plugins und Themes durch Einhaltung
-            bewährter Coding-Praktiken
-          </Typography>
-        </div>
-
+        <HeadStarter
+          title="WordPress Entwicklung mit Fokus auf Qualität"
+          variant="h2"
+          description="Sichere und wartbare WordPress Plugins und Themes durch Einhaltung
+            bewährter Coding-Praktiken"
+        />
         <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
           {WHYS.map((item, index) => (
             <Card

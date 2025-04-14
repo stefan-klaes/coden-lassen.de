@@ -19,12 +19,13 @@ import { PROJECTS } from "@/config/projects/projects";
 import { usePathname } from "next/navigation";
 
 const MOBILE_NAV = [
+  MAIN_NAVIGATION[0],
   {
     title: "Home",
     url: "/",
     icon: HomeIcon,
   },
-  ...MAIN_NAVIGATION.slice(0, 2),
+  MAIN_NAVIGATION[1],
   {
     title: "Kontakt",
     url: "/kontakt",

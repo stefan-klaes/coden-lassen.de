@@ -6,7 +6,7 @@ export default function Services() {
     <section className="w-full">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
         <div className="flex justify-start h-full">
-          <div className="aspect-[4/3] lg:aspect-auto h-full relative overflow-hidden">
+          <div className="aspect-[4/3] lg:aspect-auto lg:h-full w-full relative overflow-hidden">
             <Image
               src="/leistungen-wordpress-entwickler.png"
               alt="WordPress Entwickler mit Laptop"
@@ -22,7 +22,7 @@ export default function Services() {
           <Typography variant="h2">
             Die folgenden Leistungen biete ich als WordPress Entwickler an.
           </Typography>
-          <p className="text-base leading-relaxed text-gray-700 mb-4">
+          <p className="text-base leading-relaxed mb-4">
             Als{" "}
             <strong className="font-semibold">
               erfahrener WordPress Entwickler
@@ -44,7 +44,7 @@ export default function Services() {
             – ich liefere sauberen, wartbaren Code und
             <span className="font-semibold"> zuverlässige Lösungen</span>.
           </p>
-          <p className="text-base leading-relaxed text-gray-700 mb-4">
+          <p className="text-base leading-relaxed mb-4">
             Mein Fokus liegt auf der Umsetzung von Anforderungen, bei denen
             WordPress-typische Mittel an ihre Grenzen stoßen. Ich arbeite eng
             mit <span className="font-semibold">Designern</span>,{" "}
@@ -59,7 +59,7 @@ export default function Services() {
             <strong className="font-semibold">Sicherheit</strong> und
             <strong className="font-semibold"> Erweiterbarkeit</strong>.
           </p>
-          <p className="text-base leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed">
             Wenn du für dein Projekt Unterstützung bei
             <span className="font-semibold">
               {" "}

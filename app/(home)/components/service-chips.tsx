@@ -64,7 +64,7 @@ export default function ServiceChips() {
     <IconServices
       items={SERVICES}
       title="Mögliche individuelle Umsetzungen"
-      footerNote="Weitere Lösungen sind auf Anfrage natürlichs möglich."
+      footerNote="Weitere Lösungen natürlichs möglich."
     />
   );
 }
