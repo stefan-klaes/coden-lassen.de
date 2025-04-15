@@ -26,15 +26,15 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ["WordPress", "Entwicklung", "Webentwicklung"],
   },
   {
-    slug: "wordpress-plugins",
-    title: "WordPress Plugins",
+    slug: "wordpress-plugin-selbst-erstellen",
+    title: "WordPress Plugins selbst erstellen",
     thumbnail: {
       text: "plugin.zip",
       bg: "green",
       color: "white",
     },
     excerpt:
-      "Ich habe eine Vielzahl von WordPress Plugins entwickelt, die die Funktionalität und Benutzerfreundlichkeit von Websites verbessern.",
+      "So erstellst du ein benutzerdefiniertes WordPress Plugin, das deine Website-Funktionalität erweitert.",
     date: "2023-09-15",
     tags: ["WordPress", "Plugins", "Entwicklung"],
   },

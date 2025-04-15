@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -119,4 +121,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.prose pre {
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: pre-wrap;
 }

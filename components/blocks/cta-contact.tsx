@@ -9,9 +9,14 @@ import { cn } from "@/lib/utils";
 export default function AnfrageCTA({
   description,
   className,
+  secondaryBotton,
 }: {
   description?: string;
   className?: string;
+  secondaryBotton?: {
+    href: string;
+    label: string;
+  };
 }) {
   return (
     <div
@@ -35,8 +40,8 @@ export default function AnfrageCTA({
             </Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/leistungen">
-              Leistungen
+            <Link href={secondaryBotton?.href || "/leistungen"}>
+              {secondaryBotton?.label || "Leistungen"}
               <ArrowRightIcon className="ml-2 h-4 w-4" />
             </Link>
           </Button>

@@ -31,7 +31,13 @@ export default function LeistungenPage() {
       <div className="grid gap-24 p-4">
         <Workflow />
         <Why />
-        <AnfrageCTA description="Jetzt unverbindlich anfragen! Ich setze sowohl, kleinere Anpassungen als auch größere Entwicklungen in WordPress zum Festpreis um." />
+        <AnfrageCTA
+          description="Jetzt unverbindlich anfragen! Ich setze sowohl, kleinere Anpassungen als auch größere Entwicklungen in WordPress zum Festpreis um."
+          secondaryBotton={{
+            href: "/referenzen",
+            label: "Referenzen",
+          }}
+        />
       </div>
     </section>
   );
