@@ -83,10 +83,7 @@ export function Why() {
         />
         <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
           {WHYS.map((item, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
+            <Card key={index} className="overflow-hidden">
               <CardHeader className="flex flex-row items-center gap-2">
                 <item.icon className="size-6" />
                 <CardTitle className="text-xl font-bold">
@@ -95,7 +92,7 @@ export function Why() {
               </CardHeader>
               <CardContent>
                 <p className="mb-6 leading-relaxed">{item.description}</p>
-                <div className="rounded-lg overflow-hidden shadow-sm border">
+                <div className="rounded-lg overflow-hidden border">
                   <div className="px-4 py-2 flex items-center gap-2 border-b">
                     <Code className="h-4 w-4" />
                     <span className="text-sm font-mono">{item.filename}</span>

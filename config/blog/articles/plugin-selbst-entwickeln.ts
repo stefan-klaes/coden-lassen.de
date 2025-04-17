@@ -1,5 +1,5 @@
 export const ARTICLE = `
-# WordPress Plugin selbst entwickeln: Schritt für Schritt
+## WordPress Plugin selbst entwickeln: Schritt für Schritt
 
 Mit eigenen WordPress Plugins kannst du die Funktionalität deiner Website gezielt erweitern. In dieser Anleitung zeige ich dir, wie du ein einfaches Plugin von Grund auf selbst entwickelst.
 

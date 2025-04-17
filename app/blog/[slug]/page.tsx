@@ -9,8 +9,12 @@ import { marked } from "marked";
 import {
   addIdsToMarkdownHeadings,
   createTableOfContent,
+  customMarkdownItems,
 } from "@/config/blog/utils/create-table-of-content";
 import Link from "@/components/ui/custom-link";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Code } from "lucide-react";
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((article) => ({
@@ -59,9 +63,9 @@ export default async function BlopgArticlePage({
   }
 
   return (
-    <div className="space-y-24 p-4">
+    <div className="space-y-24 p-4 w-full max-w-screen-md mx-auto">
       <div className="grid gap-8">
-        <div className="flex flex-col text-center justify-center space-y-4 w-full max-w-screen-md mx-auto">
+        <div className="flex flex-col text-center justify-center space-y-4">
           <Typography variant="h1">{article.title}</Typography>
           <Typography variant="lead">{article.excerpt}</Typography>
           <div className="flex justify-center flex-wrap gap-2">
@@ -72,19 +76,17 @@ export default async function BlopgArticlePage({
             ))}
           </div>
         </div>
-        <div className="w-full max-w-screen-md mx-auto">
-          <Image
-            src={`/api/image/${article.slug}/thumbnail.png`}
-            alt={article.title}
-            width={1600}
-            height={900}
-            className="w-full h-auto mx-auto rounded-lg"
-            priority
-            quality={100}
-          />
-        </div>
+        <Image
+          src={`/api/image/${article.slug}/thumbnail.png`}
+          alt={article.title}
+          width={1600}
+          height={900}
+          className="w-full h-auto mx-auto rounded-lg"
+          priority
+          quality={100}
+        />
       </div>
-      <div className="grid gap-8 w-full max-w-screen-md mx-auto">
+      <div className="space-y-8">
         <TableOfContent markdown={articleContent} />
         <RenderArticleContent content={articleContent} />
       </div>
@@ -128,8 +130,43 @@ function TableOfContent({ markdown }: { markdown: BlogArticle }) {
 async function RenderArticleContent({ content }: { content: BlogArticle }) {
   if (typeof content === "string") {
     const html = addIdsToMarkdownHeadings(await marked.parse(content));
-    // for all h2
-    return <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />;
+    const htmlBlocks = customMarkdownItems(html);
+    return (
+      <div className="space-y-8">
+        {htmlBlocks.map((block, i) =>
+          block.type === "code" ? (
+            <div key={i}>
+              <div className="rounded-lg overflow-hidden border">
+                <div className="px-4 py-2 flex items-center gap-2 border-b">
+                  <Code className="h-4 w-4" />
+                  <span className="text-sm font-mono">{block.lang}</span>
+                </div>
+                <div className="overflow-x-auto max-w-full">
+                  <SyntaxHighlighter
+                    language={block.lang}
+                    style={github}
+                    customStyle={{
+                      margin: 0,
+                      padding: "1.5rem",
+                      borderRadius: "0 0 0.5rem 0.5rem",
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    {block.content}
+                  </SyntaxHighlighter>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div
+              key={i}
+              className="prose w-full max-w-screen-md"
+              dangerouslySetInnerHTML={{ __html: block.content }}
+            />
+          )
+        )}
+      </div>
+    );
   }
 
   return <>{content}</>;

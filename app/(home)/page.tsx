@@ -13,7 +13,7 @@ export default function HomePage() {
       <ServiceChips />
       <Why />
       <Projects />
-      <AnfrageCTA />
+      <AnfrageCTA className="p-4" />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 export const ARTICLE = `
-# WordPress Shortcodes: Dynamische Inhalte einfach einbinden
+## WordPress Shortcodes: Dynamische Inhalte einfach einbinden
 
 WordPress Shortcodes bieten eine einfache Möglichkeit, dynamische Inhalte in deine Website einzubauen. Mit wenigen Zeilen Code kannst du eigene Shortcodes erstellen und so beispielsweise das aktuelle Alter anzeigen lassen – und das ganz ohne manuelle Anpassungen.
 

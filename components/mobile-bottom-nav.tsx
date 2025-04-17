@@ -73,8 +73,8 @@ export default function MobileBottomNav({ className }: { className?: string }) {
       </div>
 
       <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-        <DrawerContent>
-          <div className="mx-auto w-full max-w-sm">
+        <DrawerContent className="pb-8">
+          <div className="mx-auto w-full max-w-sm p-4">
             <DrawerHeader>
               <div onClick={closeDrawer} className="w-fit">
                 <SidebarHeaderLogo />
@@ -131,26 +131,28 @@ export default function MobileBottomNav({ className }: { className?: string }) {
                 </Button>
               </div>
             </div>
-            <DrawerClose asChild>
-              <Button
-                variant="default"
-                className="w-full"
-                asChild
-                onClick={closeDrawer}
-              >
-                <Link href="/kontakt">
-                  Anfragen
-                  <ArrowRightIcon className="size-4" />
+            <div className="grid gap-2">
+              <DrawerClose asChild>
+                <Button
+                  variant="default"
+                  className="w-full"
+                  asChild
+                  onClick={closeDrawer}
+                >
+                  <Link href="/kontakt">
+                    Anfragen
+                    <ArrowRightIcon className="size-4" />
+                  </Link>
+                </Button>
+              </DrawerClose>
+              <div className="grid grid-cols-2 gap-2 text-xs text-center">
+                <Link href="/impressum" onClick={closeDrawer}>
+                  Impressum
                 </Link>
-              </Button>
-            </DrawerClose>
-            <div className="grid grid-cols-2 gap-2 text-xs text-center py-4">
-              <Link href="/impressum" onClick={closeDrawer}>
-                Impressum
-              </Link>
-              <Link href="/datenschutz" onClick={closeDrawer}>
-                Datenschutz
-              </Link>
+                <Link href="/datenschutz" onClick={closeDrawer}>
+                  Datenschutz
+                </Link>
+              </div>
             </div>
           </div>
         </DrawerContent>

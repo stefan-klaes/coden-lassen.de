@@ -74,3 +74,67 @@ function sanitizeUrlHash(hash: string): string {
   newHash = newHash.replace(/-+/g, "-");
   return newHash;
 }
+
+function decodeHtmlEntities(str: string) {
+  if (typeof window !== "undefined") {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = str;
+    return textarea.value;
+  } else {
+    // Node.js fallback for SSR
+    return str
+      .replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(dec))
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&amp;/g, "&");
+  }
+}
+
+export function customMarkdownItems(html: string) {
+  const codeRegex =
+    /<pre><code(?: class="language-([^"]+)")?>([\s\S]*?)<\/code><\/pre>/g;
+  let match: RegExpExecArray | null;
+  let lastIndex = 0;
+  const htmlBlocks: {
+    type: "code" | "html";
+    content: string;
+    lang?: string;
+  }[] = [];
+
+  while ((match = codeRegex.exec(html)) !== null) {
+    const [fullMatch, lang, codeContent] = match;
+    const index = match.index;
+
+    // Push the HTML before the code block
+    if (index > lastIndex) {
+      htmlBlocks.push({
+        type: "html",
+        content: html.slice(lastIndex, index),
+      });
+    }
+
+    // Decode HTML entities in codeContent
+    const decodedCode = decodeHtmlEntities(codeContent);
+
+    // Use only the decoded content inside <code>...</code>
+    htmlBlocks.push({
+      type: "code",
+      content: decodedCode,
+      lang: lang || "plaintext",
+    });
+
+    lastIndex = index + fullMatch.length;
+  }
+
+  // Push any remaining HTML after the last code block
+  if (lastIndex < html.length) {
+    htmlBlocks.push({
+      type: "html",
+      content: html.slice(lastIndex),
+    });
+  }
+
+  return htmlBlocks;
+}

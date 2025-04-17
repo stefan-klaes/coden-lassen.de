@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
         <div className="flex flex-col justify-center space-y-4 p-4">
           <Typography variant="h1">
-            WordPress Entwickler für individuelle Programmierungen
+            WordPress Entwickler für individuelle Lösungen
           </Typography>
           <div className="space-y-4">
             <p>

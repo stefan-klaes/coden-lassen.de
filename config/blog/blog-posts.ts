@@ -8,6 +8,8 @@ interface BlogPost {
     text: string;
     bg: string;
     color: string;
+    image: string;
+    type?: "code_editor" | "image";
   };
 }
 
@@ -19,6 +21,7 @@ export const BLOG_POSTS: BlogPost[] = [
       text: "[shortcode]",
       bg: "blue",
       color: "white",
+      image: "/thumbnails/thumbnail-1.png",
     },
     excerpt:
       "Ich habe einen benutzerdefinierten WordPress Shortcode erstellt, der es ermöglicht, Inhalte dynamisch in Beiträgen und Seiten einzufügen.",
@@ -29,9 +32,16 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "wordpress-plugin-selbst-erstellen",
     title: "WordPress Plugins selbst erstellen",
     thumbnail: {
-      text: "plugin.zip",
+      text: `<?php
+[empty]
+/**
+ * Plugin Name:    Dein Plugin
+ * Version:              1.0.0
+ */`,
       bg: "green",
       color: "white",
+      image: "/thumbnails/thumbnail-2.png",
+      type: "code_editor",
     },
     excerpt:
       "So erstellst du ein benutzerdefiniertes WordPress Plugin, das deine Website-Funktionalität erweitert.",
@@ -45,6 +55,7 @@ export const BLOG_POSTS: BlogPost[] = [
       text: "theme.php",
       bg: "purple",
       color: "white",
+      image: "/thumbnails/thumbnail-3.png",
     },
     excerpt:
       "Ich habe zahlreiche benutzerdefinierte WordPress Themes entwickelt, die auf die spezifischen Anforderungen meiner Kunden zugeschnitten sind.",
@@ -58,6 +69,7 @@ export const BLOG_POSTS: BlogPost[] = [
       text: "status: 200",
       bg: "orange",
       color: "white",
+      image: "/thumbnails/thumbnail-4.png",
     },
     excerpt:
       "Ich habe WordPress mit externen APIs integriert, um Daten dynamisch abzurufen und anzuzeigen.",

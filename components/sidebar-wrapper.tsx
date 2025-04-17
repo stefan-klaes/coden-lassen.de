@@ -23,7 +23,7 @@ export default function SidebarWrapper({
             <SidebarBreadcrumbs />
           </div>
         </header>
-        <div className="absolute inset-0 top-12 flex flex-col overflow-y-auto">
+        <div className="absolute inset-0 top-12 flex flex-col overflow-y-auto overflow-x-hidden">
           <div className="flex-1 pb-12 md:pb-0">{children}</div>
         </div>
       </SidebarInset>
