@@ -1,5 +1,4 @@
 export const runtime = "edge";
-export const dynamic = "force-dynamic";
 
 import { BLOG_POSTS } from "@/config/blog/blog-posts";
 import { ImageResponse } from "next/og";
@@ -17,6 +16,9 @@ export async function GET(
   }
   const { text, bg, color, image, type } = post.thumbnail;
 
+  const url = new URL(request.url);
+  const origin = url.origin;
+
   return new ImageResponse(
     (
       <div
@@ -31,7 +33,7 @@ export async function GET(
         }}
       >
         <img
-          src={`http://localhost:3000${image}`}
+          src={`${origin}${image}`}
           style={{
             position: "absolute",
             bottom: 0,
