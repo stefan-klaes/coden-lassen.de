@@ -3,11 +3,13 @@ import { ArrowRightIcon, MoveUpRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "../ui/custom-link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export default function AnfrageCTA({
   description,
   className,
   secondaryBotton,
+  imageClass,
 }: {
   description?: string;
   className?: string;
@@ -15,6 +17,7 @@ export default function AnfrageCTA({
     href: string;
     label: string;
   };
+  imageClass?: string;
 }) {
   return (
     <div className={className}>
@@ -44,7 +47,10 @@ export default function AnfrageCTA({
         <Image
           src="/wordpress-entwickler-anfragen-kontakt.png"
           alt="WordPress Entwickler PHP"
-          className="bottom-0 right-0 opacity-100 h-[90%] w-auto hidden xl:block absolute"
+          className={cn(
+            "bottom-0 right-0 opacity-100 h-[90%] w-auto hidden xl:block absolute",
+            imageClass
+          )}
           height={400}
           width={400}
         />

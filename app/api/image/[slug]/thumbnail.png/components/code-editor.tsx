@@ -1,9 +1,12 @@
+import { ImageCodeEditor } from "@/config/blog/types";
 import React from "react";
 
-export default function CodeEditorComponent({ text }: { text: string }) {
-  const filename = "filename";
-  const codeLines = text.split("\n");
-  const language = "code editor";
+export default function CodeEditorComponent({
+  config,
+}: {
+  config: ImageCodeEditor;
+}) {
+  const { filename, language, codeLines } = config;
   return (
     <div
       style={{

@@ -15,6 +15,7 @@ import Link from "@/components/ui/custom-link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Code } from "lucide-react";
+import AnfrageCTA from "@/components/blocks/cta-contact";
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((article) => ({
@@ -90,6 +91,13 @@ export default async function BlopgArticlePage({
         <TableOfContent markdown={articleContent} />
         <RenderArticleContent content={articleContent} />
       </div>
+      <AnfrageCTA
+        secondaryBotton={{
+          href: "/blog",
+          label: "Blog weiterlesen",
+        }}
+        imageClass="h-[50%]"
+      />
     </div>
   );
 }
@@ -110,10 +118,7 @@ function TableOfContent({ markdown }: { markdown: BlogArticle }) {
               <ul className="list-disc pl-6 space-y-2">
                 {item.children.map((child) => (
                   <li key={child.hash}>
-                    <a
-                      href={child.hash}
-                      className="text-blue-600 hover:underline"
-                    >
+                    <a href={child.hash} className="hover:underline">
                       {child.title}
                     </a>
                   </li>

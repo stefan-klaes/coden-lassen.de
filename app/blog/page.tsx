@@ -11,12 +11,12 @@ export default function BlogPage() {
             <div className="border rounded overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
               <Image
                 src={`/api/image/${post.slug}/thumbnail.png`}
-                alt={post.thumbnail.text}
+                alt={post.title}
                 width={800}
                 height={450}
                 className="w-full"
               />
-              <div className="p-4">
+              <div className="p-4 border-t">
                 <h2 className="text-xl font-semibold line-clamp-2">
                   {post.title}
                 </h2>

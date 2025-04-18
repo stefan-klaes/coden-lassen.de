@@ -1,30 +1,21 @@
-interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  tags: string[];
-  thumbnail: {
-    text: string;
-    bg: string;
-    color: string;
-    image: string;
-    type?: "code_editor" | "image";
-  };
-}
+import { BlogPost } from "./types";
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "wordpress-shortcode-erstellen",
     title: "WordPress Shortcode erstellen",
     thumbnail: {
-      text: "[shortcode]",
-      bg: "blue",
-      color: "white",
-      image: "/thumbnails/thumbnail-1.png",
+      config: {
+        type: "code_diff",
+        atts: {
+          oldLines: ["Ich bin 32 Jahre alt."],
+          newLines: ["Ich bin [mein_alter] Jahre alt."],
+        },
+      },
+      motiv: "1",
     },
     excerpt:
-      "Ich habe einen benutzerdefinierten WordPress Shortcode erstellt, der es ermöglicht, Inhalte dynamisch in Beiträgen und Seiten einzufügen.",
+      "Schritt für Schritt Anleitung zum Erstellen von benutzerdefinierten WordPress Shortcodes. Erfahre, wie du dynamische Inhalte einfach in deine Beiträge und Seiten einfügen kannst.",
     date: "2023-10-01",
     tags: ["WordPress", "Entwicklung", "Webentwicklung"],
   },
@@ -32,33 +23,46 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "wordpress-plugin-selbst-erstellen",
     title: "WordPress Plugins selbst erstellen",
     thumbnail: {
-      text: `<?php
-[empty]
-/**
- * Plugin Name:    Dein Plugin
- * Version:              1.0.0
- */`,
-      bg: "green",
-      color: "white",
-      image: "/thumbnails/thumbnail-2.png",
-      type: "code_editor",
+      config: {
+        type: "code_editor",
+        atts: {
+          filename: "dein-plugin.php",
+          language: "php",
+          codeLines: [
+            "<?php",
+            "/*",
+            " * Plugin Name: Dein Plugin",
+            " * Version: 1.0",
+            " */",
+          ],
+        },
+      },
+      motiv: "2",
     },
     excerpt:
-      "So erstellst du ein benutzerdefiniertes WordPress Plugin, das deine Website-Funktionalität erweitert.",
+      "Komplette Anleitung zum Erstellen eigener WordPress Plugins von Grund auf. Lerne, wie du deine Website mit maßgeschneiderten Funktionen erweitern kannst.",
     date: "2023-09-15",
     tags: ["WordPress", "Plugins", "Entwicklung"],
   },
   {
-    slug: "wordpress-themes",
-    title: "WordPress Themes",
+    slug: "wordpress-theme-selbst-erstellen",
+    title: "WordPress Theme selbst erstellen",
     thumbnail: {
-      text: "theme.php",
-      bg: "purple",
-      color: "white",
-      image: "/thumbnails/thumbnail-3.png",
+      config: {
+        type: "terminal",
+        atts: {
+          commandLines: [
+            {
+              command: "wp theme install mein-theme",
+              output: "Installing Mein Theme (1.0)",
+            },
+          ],
+        },
+      },
+      motiv: "3",
     },
     excerpt:
-      "Ich habe zahlreiche benutzerdefinierte WordPress Themes entwickelt, die auf die spezifischen Anforderungen meiner Kunden zugeschnitten sind.",
+      "Umfassender Guide zur Entwicklung professioneller WordPress Themes. Erfahre, wie du maßgeschneiderte Designs erstellst, die perfekt auf die Bedürfnisse deiner Kunden abgestimmt sind.",
     date: "2023-08-20",
     tags: ["WordPress", "Themes", "Entwicklung"],
   },
@@ -66,14 +70,41 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "wordpress-external-api",
     title: "WordPress mit externen APIs",
     thumbnail: {
-      text: "status: 200",
-      bg: "orange",
-      color: "white",
-      image: "/thumbnails/thumbnail-4.png",
+      config: {
+        type: "browser_preview",
+        atts: {
+          title: "External API",
+          content: `status: 400,\nerror: "Bad Request"`,
+          url: "WordPress > Backend",
+        },
+      },
+      motiv: "8",
     },
     excerpt:
-      "Ich habe WordPress mit externen APIs integriert, um Daten dynamisch abzurufen und anzuzeigen.",
+      "Praxisnahe Anleitung zur Integration externer APIs in WordPress. Lerne, wie du Daten dynamisch abrufen, verarbeiten und nutzerfreundlich auf deiner Website anzeigen kannst.",
     date: "2023-07-10",
     tags: ["WordPress", "API", "Integration"],
+  },
+  {
+    slug: "wordpress-code-sicherheit",
+    title:
+      "WordPress Code Sicherheit: Best Practices für sichere Plugins & Themes",
+    thumbnail: {
+      config: {
+        type: "code_diff",
+        atts: {
+          oldLines: ["$_POST['email'];", "$_POST['option'];"],
+          newLines: [
+            "sanitize_email( $_POST['email'] )",
+            "sanitize_option( $_POST['option'] )",
+          ],
+        },
+      },
+      motiv: "7",
+    },
+    excerpt:
+      "Wichtige Sicherheitsrichtlinien und Best Practices für WordPress-Entwickler. Erkenne typische Sicherheitslücken und lerne, wie du deinen Code nach WordPress-Standards absichern kannst.",
+    date: "2024-06-08",
+    tags: ["WordPress", "Sicherheit", "Best Practices", "Entwicklung"],
   },
 ];

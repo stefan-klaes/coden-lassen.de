@@ -3,6 +3,9 @@ export const runtime = "edge";
 import { BLOG_POSTS } from "@/config/blog/blog-posts";
 import { ImageResponse } from "next/og";
 import CodeEditorComponent from "./components/code-editor";
+import BrowserPreviewComponent from "./components/browser-preview";
+import TerminalComponent from "./components/terminal";
+import CodeDiff from "./components/code-diff";
 
 export async function GET(
   request: Request,
@@ -14,10 +17,13 @@ export async function GET(
   if (!post) {
     return new Response("Not Found", { status: 404 });
   }
-  const { text, bg, color, image, type } = post.thumbnail;
+  const { motiv, config } = post.thumbnail;
+  const { type } = config;
 
   const url = new URL(request.url);
   const origin = url.origin;
+
+  const image = `/thumbnails/thumbnail-${motiv}.png`;
 
   return new ImageResponse(
     (
@@ -34,49 +40,33 @@ export async function GET(
       >
         <img
           src={`${origin}${image}`}
+          alt="thumbnail"
           style={{
             position: "absolute",
             bottom: 0,
             left: 0,
             width: 300,
             height: 300,
-            zIndex: 1, // unitless number
           }}
         />
-        {type === "code_editor" ? (
-          <div
-            style={{
-              position: "absolute",
-              top: 20,
-              right: 20,
-              display: "flex",
-            }}
-          >
-            <CodeEditorComponent text={text} />
-          </div>
-        ) : (
-          <div
-            style={{
-              display: "flex", // explicitly set flex
-              alignItems: "center",
-              justifyContent: "center",
-              position: "absolute",
-              borderRadius: 10,
-              top: 20,
-              right: 20,
-              zIndex: 2, // unitless number
-              backgroundColor: bg,
-              color: color,
-              width: 520,
-              height: 225,
-              marginBottom: 50,
-              fontSize: 72,
-              padding: 20,
-            }}
-          >
-            {text}
-          </div>
-        )}
+        <div
+          style={{
+            position: "absolute",
+            top: 20,
+            right: 20,
+            display: "flex",
+          }}
+        >
+          {type === "code_editor" ? (
+            <CodeEditorComponent config={config.atts} />
+          ) : type === "browser_preview" ? (
+            <BrowserPreviewComponent config={config.atts} />
+          ) : type === "terminal" ? (
+            <TerminalComponent config={config.atts} />
+          ) : type === "code_diff" ? (
+            <CodeDiff config={config.atts} />
+          ) : null}
+        </div>
       </div>
     ),
     {
