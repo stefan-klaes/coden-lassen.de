@@ -10,7 +10,6 @@ export default function LeistungenPage() {
     <section className="grid gap-24 py-4">
       <div className="grid gap-24">
         <HeadStarter
-          tag="Leistungen"
           title="Diese Leistungen biete ich als WordPress Entwickler an"
           description={
             <span>

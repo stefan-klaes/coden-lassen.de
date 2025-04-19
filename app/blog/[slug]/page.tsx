@@ -92,11 +92,13 @@ export default async function BlopgArticlePage({
         <RenderArticleContent content={articleContent} />
       </div>
       <AnfrageCTA
+        title={article?.cta?.title}
+        description={article?.cta?.description}
         secondaryBotton={{
           href: "/blog",
           label: "Blog weiterlesen",
         }}
-        imageClass="h-[50%]"
+        imageClass="h-[40%]"
       />
     </div>
   );

@@ -6,7 +6,6 @@ export default function ProjectsPage() {
   return (
     <section className="space-y-8">
       <HeadStarter
-        tag="Referenzen"
         title="Meine Referenzen als WordPress Entwickler"
         description={
           <span>

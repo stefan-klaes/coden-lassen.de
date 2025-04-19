@@ -1,14 +1,13 @@
 "use client";
-
 import { useState, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
 import Link from "@/components/ui/custom-link";
 import { Typography } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
 import { SearchIcon, X } from "lucide-react";
 import { Project } from "@/config/projects/projects";
+import PaperImage from "@/components/blocks/paper-image";
 
 interface ProjectsListProps {
   projects: readonly Project[];
@@ -121,17 +120,9 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
               href={`/referenzen/${project.slug}`}
               className="block"
             >
-              <div className="w-full h-full overflow-hidden rounded border">
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.name}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                  />
-                </div>
-
+              <div className="hover:bg-accent transition delay-75 w-full h-full overflow-hidden rounded">
+                {/* Papier-Zettel mit Tape-Effekt */}
+                <PaperImage src={project.image} alt={project.name} />
                 <div className="flex-1 space-y-4 p-2 md:p-4">
                   <div>
                     <Typography

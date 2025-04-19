@@ -110,7 +110,6 @@ export default function Workflow() {
   return (
     <div>
       <HeadStarter
-        tag="Ablauf"
         title="Mein Workflow als WordPress Entwickler"
         variant="h2"
         description="Dieser Ablauf ist natürlich nicht in Stein gemeißelt, sondern wird an

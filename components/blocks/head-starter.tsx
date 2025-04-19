@@ -2,13 +2,11 @@ import Image from "next/image";
 import { Typography } from "../ui/typography";
 
 export default function HeadStarter({
-  tag,
   title,
   variant = "h1",
   description,
   image,
 }: {
-  tag?: string;
   title: string;
   variant?: "h1" | "h2" | "h3";
   description: string | React.ReactNode;
@@ -18,8 +16,7 @@ export default function HeadStarter({
   };
 }) {
   return (
-    <div className="grid gap-4 text-center text-pretty w-full max-w-screen-md mx-auto pb-12">
-      {tag ? <p className="text-muted-foreground text-sm">{tag}</p> : null}
+    <div className="grid gap-4 text-left md:text-center text-pretty w-full max-w-screen-md mx-auto pb-12">
       <Typography variant={variant}>{title}</Typography>
       <p>{description}</p>
       {image ? (

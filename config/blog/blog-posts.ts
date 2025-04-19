@@ -1,5 +1,13 @@
 import { BlogPost } from "./types";
 
+export const BLOG_SLUGS = [
+  "wordpress-shortcode-erstellen",
+  "wordpress-plugin-selbst-erstellen",
+  "wordpress-theme-selbst-erstellen",
+  "wordpress-external-api",
+  "wordpress-code-sicherheit",
+] as const;
+
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "wordpress-shortcode-erstellen",
@@ -18,6 +26,11 @@ export const BLOG_POSTS: BlogPost[] = [
       "Schritt für Schritt Anleitung zum Erstellen von benutzerdefinierten WordPress Shortcodes. Erfahre, wie du dynamische Inhalte einfach in deine Beiträge und Seiten einfügen kannst.",
     date: "2023-10-01",
     tags: ["WordPress", "Entwicklung", "Webentwicklung"],
+    cta: {
+      title: "Individuelle WordPress Programmierung benötigt?",
+      description:
+        "Egal, ob shortcodes oder andere Anpassungen, ich helfe dir gerne.",
+    },
   },
   {
     slug: "wordpress-plugin-selbst-erstellen",
@@ -43,6 +56,10 @@ export const BLOG_POSTS: BlogPost[] = [
       "Komplette Anleitung zum Erstellen eigener WordPress Plugins von Grund auf. Lerne, wie du deine Website mit maßgeschneiderten Funktionen erweitern kannst.",
     date: "2023-09-15",
     tags: ["WordPress", "Plugins", "Entwicklung"],
+    cta: {
+      title: "WordPress Plugin erstellen lassen?",
+      description: "Ich entwickel individuelle Plugins für meine Kunden.",
+    },
   },
   {
     slug: "wordpress-theme-selbst-erstellen",
@@ -84,6 +101,10 @@ export const BLOG_POSTS: BlogPost[] = [
       "Praxisnahe Anleitung zur Integration externer APIs in WordPress. Lerne, wie du Daten dynamisch abrufen, verarbeiten und nutzerfreundlich auf deiner Website anzeigen kannst.",
     date: "2023-07-10",
     tags: ["WordPress", "API", "Integration"],
+    cta: {
+      title: "API doch lieber integrieren lassen?",
+      description: "Melde dich mit deinen Anforderungen und ich helfe dir.",
+    },
   },
   {
     slug: "wordpress-code-sicherheit",

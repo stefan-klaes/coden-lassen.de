@@ -6,11 +6,13 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export default function AnfrageCTA({
+  title,
   description,
   className,
   secondaryBotton,
   imageClass,
 }: {
+  title?: string;
   description?: string;
   className?: string;
   secondaryBotton?: {
@@ -24,7 +26,7 @@ export default function AnfrageCTA({
       <div className="overflow-hidden relative w-full bg-zinc-100 dark:bg-zinc-800 p-4 py-22 border rounded flex items-center justify-center">
         <div className="space-y-12">
           <p className="text-4xl font-bold text-center text-pretty">
-            Interesse an einer Zusammenarbeit?
+            {title || "Interesse an einer Zusammenarbeit?"}
           </p>
           {description ? (
             <p className="text-center max-w-xl mx-auto">{description}</p>

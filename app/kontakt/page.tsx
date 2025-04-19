@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Typography } from "@/components/ui/typography";
 import { SendIcon } from "lucide-react";
-import Age from "@/components/blocks/age";
-import YearsExperience from "@/components/blocks/years-experience";
+import AboutMe from "@/components/blocks/about-me";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -122,46 +120,8 @@ export default function ContactPage() {
 
       <div className="flex items-center h-full overflow-hidden">
         <div className="flex flex-col h-full w-full">
-          <div className="space-y-2 text-left p-4">
-            {[
-              {
-                label: (
-                  <span>
-                    Stefan Klaes (<Age /> Jahre alt)
-                  </span>
-                ),
-                emoji: "👨‍💻  ",
-              },
-              {
-                label: (
-                  <span>
-                    WordPress Entwickler (<YearsExperience /> Jahre Erfahrung)
-                  </span>
-                ),
-                emoji: "💻  ",
-              },
-              {
-                label: "Elsdorf (zw. Hamburg und Bremen)",
-                emoji: "📍  ",
-              },
-              {
-                label: "arbeite remote (ganz Deutschland)",
-                emoji: "🏠  ",
-              },
-              {
-                label: "stefan@coden-lassen.de",
-                emoji: "✉️  ",
-              },
-              {
-                label: "Antwort in <48 Stunden",
-                emoji: "⏳  ",
-              },
-            ].map((item, index) => (
-              <div key={index} className="flex items-center space-x-2">
-                <span className="text-lg">{item.emoji}</span>
-                <p>{item.label}</p>
-              </div>
-            ))}
+          <div className="p-4">
+            <AboutMe />
           </div>
           <div className="flex items-end justify-end mt-auto w-full">
             <Image

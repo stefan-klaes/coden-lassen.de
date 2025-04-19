@@ -1,3 +1,5 @@
+import { BLOG_SLUGS } from "./blog-posts";
+
 export type ImageCodeEditor = {
   filename: string;
   language: string;
@@ -41,7 +43,7 @@ type Thumbnail =
     };
 
 export interface BlogPost {
-  slug: string;
+  slug: BlogsSlug;
   title: string;
   excerpt: string;
   date: string;
@@ -50,4 +52,10 @@ export interface BlogPost {
     config: Thumbnail;
     motiv: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8";
   };
+  cta?: {
+    title?: string;
+    description?: string;
+  };
 }
+
+export type BlogsSlug = (typeof BLOG_SLUGS)[number];
