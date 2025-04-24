@@ -11,7 +11,7 @@ export async function GET() {
     const email = session.user.email;
     const projectId = session.user.project?.id || 0;
 
-    bearerToken = createBearerToken({
+    bearerToken = await createBearerToken({
       email,
       projectId,
     });

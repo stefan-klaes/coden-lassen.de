@@ -2,7 +2,7 @@ import { API_URL } from "@/config/config";
 import { createBearerToken } from "./create-bearer-token";
 
 export async function getOrCreateProject({ email }: { email: string }) {
-  const bearerToken = createBearerToken({
+  const bearerToken = await createBearerToken({
     email,
     projectId: 0,
   });
