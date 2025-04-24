@@ -1,6 +1,10 @@
-//import jwt from "jsonwebtoken";
+import { SignJWT } from 'jose';
 
-export function createBearerToken({
+// JWT generation is disabled because 'jsonwebtoken' depends on Node.js core modules
+// which are not available in edge/serverless/browser environments (e.g., Vercel Edge).
+// If you need JWTs, use a compatible library or move this logic to a Node.js API route.
+
+export async function createBearerToken({
   email,
   projectId,
 }: {
@@ -10,6 +14,8 @@ export function createBearerToken({
   if (!email || !projectId) {
     return null;
   }
-  return null;
-  //return jwt.sign({ email, projectId }, process.env.AUTH_SECRET!);
+  const secret = new TextEncoder().encode(process.env.AUTH_SECRET);
+  return await new SignJWT({ email, projectId })
+    .setProtectedHeader({ alg: 'HS256' })
+    .sign(secret);
 }
