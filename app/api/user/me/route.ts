@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { auth } from "@/lib/auth";
 import { createBearerToken } from "@/lib/auth/create-bearer-token";
 import { NextResponse } from "next/server";
