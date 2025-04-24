@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { Typography } from "@/components/ui/typography";
 import { ToolSlug } from "@/config/tools/types";
 import { notFound } from "next/navigation";
