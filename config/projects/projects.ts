@@ -10,6 +10,16 @@ export interface ProjectItem {
 
 export const PROJECTS = [
   {
+    name: "Simplest Analytics",
+    slug: "simplest-analytics-wp-plugin",
+    image: "/referenzen/simplest-analytics-drawed.png",
+    description: "Offizielle WordPress Plugin für Simplest Analytics",
+    excerpt:
+      "Plugin im WordPress Plugin Verzeichnis, das basis Analytics für WordPress bereitstellt.",
+    emoji: "📈",
+    tags: ["Analytics", "Plugin"],
+  },
+  {
     name: "PDF Etiketten",
     slug: "pdf-etiketten",
     image: "/referenzen/etikettendrucker-wordpress-code.png", // "/wordpress-plugin-labeldrucker.webp",

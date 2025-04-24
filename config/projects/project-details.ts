@@ -20,9 +20,13 @@ export type ProjectDetails = {
     alt: string;
     description?: string;
   }[];
+  links?: {
+    title: string;
+    url: string;
+  }[];
 };
 
-export const PROJECT_DETAILS: Partial<Record<ProjectSlug, ProjectDetails>> = {
+export const PROJECT_DETAILS: Record<ProjectSlug, ProjectDetails> = {
   werkstattauftrag: details.werkstattauftrag,
   "job-synchronisation": details.jobSynchronisation,
   "pdf-etiketten": details.pdfEtiketten,
@@ -32,4 +36,5 @@ export const PROJECT_DETAILS: Partial<Record<ProjectSlug, ProjectDetails>> = {
   "racechip-api-fahrzeugwahl": details.racechipApiFahrzeugwahl,
   ticketsystem: details.ticketsystem,
   versandkostenfrei: details.versandkostenfrei,
+  "simplest-analytics-wp-plugin": details.simplestAnalytics,
 };

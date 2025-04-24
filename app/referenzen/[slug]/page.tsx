@@ -3,12 +3,14 @@ import { Screenshot } from "@/components/ui/screenshot";
 import { Typography } from "@/components/ui/typography";
 import { PROJECT_DETAILS } from "@/config/projects/project-details";
 import { PROJECTS } from "@/config/projects/projects";
-import { Code } from "lucide-react";
-import Image from "next/image";
+import { Code, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Metadata } from "next";
+import Link from "@/components/ui/custom-link";
+import { Button } from "@/components/ui/button";
+import PaperImage from "@/components/blocks/paper-image";
 
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -70,7 +72,14 @@ export default async function ReferenzPage({
             ))}
           </div>
         </div>
-        <div className="bg-accent p-8 rounded-lg flex items-center justify-center mt-8">
+        <div className="mt-8 bg-none md:bg-accent p-0 md:p-8 rounded-lg flex items-center justify-center">
+          <PaperImage
+            className="h-full max-h-[400px] max-w-[640px]"
+            src={project.image}
+            alt={project.name}
+          />
+        </div>
+        {/* <div className="bg-accent p-8 rounded-lg flex items-center justify-center mt-8">
           <Image
             src={project.image}
             alt={project.name}
@@ -80,7 +89,7 @@ export default async function ReferenzPage({
             priority
             quality={100}
           />
-        </div>
+        </div> */}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
         <div className="md:col-span-2">
@@ -111,6 +120,20 @@ export default async function ReferenzPage({
           </div>
         </div>
       </div>
+
+      {projectDetails.links ? (
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold mb-4">Links</h2>
+          {projectDetails.links.map((link, i) => (
+            <Button className="border" variant="secondary" asChild key={i}>
+              <Link target="_blank" href={link.url}>
+                {link.title}
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          ))}
+        </div>
+      ) : null}
 
       <div className="space-y-8">
         {projectDetails.screenshots || projectDetails.code ? (

@@ -1,11 +1,8 @@
 import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import SidebarBreadcrumbs from "./sidebar-breadcrumbs";
 import SidebarHandler from "./sidebar-handler";
+import SidebarVisibilityToggle from "./sidebar-visibility-toggle";
 
 export default function SidebarWrapper({
   children,
@@ -18,7 +15,7 @@ export default function SidebarWrapper({
       <SidebarInset className="relative overflow-hidden">
         <header className="flex h-12 shrink-0 items-center gap-2 absolute top-0 left-0 right-0 z-10 bg-background border-b border-border">
           <div className="flex items-center gap-0 lg:gap-2 px-4">
-            <SidebarTrigger className="-ml-1 hidden lg:flex" />
+            <SidebarVisibilityToggle />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <SidebarBreadcrumbs />
           </div>

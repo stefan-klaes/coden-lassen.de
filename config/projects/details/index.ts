@@ -7,3 +7,4 @@ export { default as bestellemails } from "./bestellemails";
 export { default as racechipApiFahrzeugwahl } from "./racechip-api-fahrzeugwahl";
 export { default as ticketsystem } from "./ticketsystem";
 export { default as versandkostenfrei } from "./versandkostenfrei";
+export { default as simplestAnalytics } from "./simplest-analytics";

@@ -8,7 +8,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 export function Projects() {
   return (
-    <div className="space-y-8 p-4">
+    <div className="space-y-8">
       <div className="space-y-4">
         <Typography variant="h2">Meine Referenzen</Typography>
         <p className="text-lg">
@@ -25,7 +25,7 @@ export function Projects() {
             href={`/referenzen/${project.slug}`}
             key={i}
           >
-            <div className="flex flex-row items-center gap-3 hover:bg-accent transition-all p-2 rounded">
+            <div className="flex flex-row items-center gap-4 hover:bg-accent transition-all rounded">
               <div className="w-22 md:w-28 flex-none">
                 <PaperImage
                   className="aspect-square"

@@ -73,7 +73,7 @@ $email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : "" ;`,
 
 export function Why() {
   return (
-    <section className="p-4">
+    <section>
       <div>
         <HeadStarter
           title="WordPress Entwicklung mit Fokus auf Qualität"

@@ -9,6 +9,7 @@ import {
 import Link from "@/components/ui/custom-link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import { NavUser } from "./nav-user";
 
 export function NavSecondary() {
   const { state } = useSidebar();
@@ -18,7 +19,9 @@ export function NavSecondary() {
       <SidebarGroupContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            {pathname !== "/kontakt" ? (
+            {pathname.startsWith("/tools") ? (
+              <NavUser isCollapsed={state !== "collapsed"} />
+            ) : pathname !== "/kontakt" ? (
               <Button variant="default" className="w-full" asChild>
                 <Link href="/kontakt">
                   {state !== "collapsed" ? (

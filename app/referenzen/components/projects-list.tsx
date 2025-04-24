@@ -113,14 +113,14 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredProjects.map((project, i) => (
             <Link
               key={i}
               href={`/referenzen/${project.slug}`}
               className="block"
             >
-              <div className="hover:bg-accent transition delay-75 w-full h-full overflow-hidden rounded">
+              <div className="hover:bg-accent transition delay-75 w-full h-full overflow-hidden rounded-lg">
                 {/* Papier-Zettel mit Tape-Effekt */}
                 <PaperImage src={project.image} alt={project.name} />
                 <div className="flex-1 space-y-4 p-2 md:p-4">

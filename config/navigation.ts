@@ -1,5 +1,6 @@
 import {
   CodeIcon,
+  LayoutGridIcon,
   ProjectorIcon,
   RssIcon,
   SquareUserRoundIcon,
@@ -25,5 +26,10 @@ export const MAIN_NAVIGATION = [
     title: "Blog",
     url: "/blog",
     icon: RssIcon,
+  },
+  {
+    title: "Tools",
+    url: "/tools",
+    icon: LayoutGridIcon,
   },
 ];

@@ -34,16 +34,13 @@ export default function PaperImage({
       />
       {/* Papier-Effekt */}
       <div
-        className="bg-white border border-yellow-100 shadow-lg rounded-md overflow-hidden flex items-center justify-center"
+        className="w-full md:w-[90%] left-0 md:left-[20%] ml-0 md:-ml-[15%] bg-background border border-yellow-100 shadow-lg rounded-md overflow-hidden flex items-center justify-center"
         style={{
           boxShadow: "0 8px 24px 0 rgba(0,0,0,0.13), 0 1.5px 0 #fbeec1",
           border: "1px solid #fbeec1",
           position: "absolute",
           top: "5%",
-          left: "20%",
-          width: "90%",
           height: "90%",
-          marginLeft: "-15%",
           marginTop: "0",
           display: "flex",
           alignItems: "center",

@@ -1,7 +1,15 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ArrowRightIcon, HomeIcon, Menu, SendIcon } from "lucide-react";
+import {
+  ArrowRightIcon,
+  CodeIcon,
+  HomeIcon,
+  LayoutGridIcon,
+  Menu,
+  ProjectorIcon,
+  SendIcon
+} from "lucide-react";
 import { useState } from "react";
 import {
   Drawer,
@@ -17,15 +25,24 @@ import Link from "./ui/custom-link";
 import SidebarHeaderLogo from "./sidebar-header-logo";
 import { PROJECTS } from "@/config/projects/projects";
 import { usePathname } from "next/navigation";
+import { NavUser } from "./nav-user";
 
 const MOBILE_NAV = [
-  MAIN_NAVIGATION[0],
+  {
+    title: "Leistungen",
+    url: "/leistungen",
+    icon: CodeIcon,
+  },
   {
     title: "Home",
     url: "/",
     icon: HomeIcon,
   },
-  MAIN_NAVIGATION[1],
+  {
+    title: "Referenzen",
+    url: "/referenzen",
+    icon: ProjectorIcon,
+  },
   {
     title: "Kontakt",
     url: "/kontakt",
@@ -47,6 +64,42 @@ export default function MobileBottomNav({ className }: { className?: string }) {
           className
         )}
       >
+        {pathname.startsWith("/tools") ? (
+          <div className="grid h-12 grid-cols-5">
+          <button
+            onClick={() => setDrawerOpen(true)}
+            className="flex flex-col items-center justify-center space-y-1"
+          >
+            <Menu className="size-4" />
+            <span className="text-xs">Menu</span>
+          </button>
+          <Link
+              href="/tools"
+              onClick={closeDrawer}
+              className={cn(
+                "flex flex-col items-center justify-center space-y-1",
+                pathname === "/tools" ? "font-semibold" : ""
+              )}
+            >
+              <LayoutGridIcon className="size-4" />
+              <span className="text-xs">Tools</span>
+            </Link>
+          <Link
+              href="/"
+              onClick={closeDrawer}
+              className={cn(
+                "flex flex-col items-center justify-center space-y-1",
+                pathname === "/" ? "font-semibold" : ""
+              )}
+            >
+              <HomeIcon className="size-4" />
+              <span className="text-xs">Home</span>
+            </Link>
+            <div className="col-span-2 flex items-center pr-4">
+              <NavUser isBottomNav={true} isCollapsed={false} />
+            </div>
+          </div>
+        ): (
         <div className="grid h-12 grid-cols-5">
           <button
             onClick={() => setDrawerOpen(true)}
@@ -70,6 +123,7 @@ export default function MobileBottomNav({ className }: { className?: string }) {
             </Link>
           ))}
         </div>
+        )}
       </div>
 
       <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
@@ -84,7 +138,11 @@ export default function MobileBottomNav({ className }: { className?: string }) {
             </DrawerHeader>
             <div className="grid gap-8 pb-8">
               <div className="grid grid-cols-2 gap-2">
-                {MAIN_NAVIGATION.map((item, i) => (
+                {MAIN_NAVIGATION.map((item, i) => {
+                if (item.title === "Referenzen") {
+                  return null
+                }
+                return (
                   <Button
                     variant="outline"
                     className="w-full justify-start truncate"
@@ -97,7 +155,7 @@ export default function MobileBottomNav({ className }: { className?: string }) {
                       <span className="truncate">{item.title}</span>
                     </Link>
                   </Button>
-                ))}
+                )})}
               </div>
               <div className="grid gap-2">
                 <p className="text-sm font-medium">Referenzen</p>

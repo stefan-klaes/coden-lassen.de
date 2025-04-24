@@ -20,7 +20,7 @@ export default function IconServices({
   footerNote?: string;
 }) {
   return (
-    <div className={cn("space-y-8 p-4", className)}>
+    <div className={cn("space-y-8", className)}>
       {title ? <Typography variant="h3">{title}</Typography> : null}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {items.map((service, index) => (

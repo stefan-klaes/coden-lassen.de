@@ -64,34 +64,37 @@ export default async function BlopgArticlePage({
   }
 
   return (
-    <div className="space-y-24 p-4 w-full max-w-screen-md mx-auto">
-      <div className="grid gap-8">
-        <div className="flex flex-col text-center justify-center space-y-4">
-          <Typography variant="h1">{article.title}</Typography>
-          <Typography variant="lead">{article.excerpt}</Typography>
-          <div className="flex justify-center flex-wrap gap-2">
-            {article.tags.map((tag) => (
-              <Badge key={tag} variant="outline">
-                {tag}
-              </Badge>
-            ))}
+    <div className="space-y-24">
+      <div className="space-y-24 p-4 w-full max-w-screen-md mx-auto">
+        <div className="grid gap-8">
+          <div className="flex flex-col text-center justify-center space-y-4">
+            <Typography variant="h1">{article.title}</Typography>
+            <Typography variant="lead">{article.excerpt}</Typography>
+            <div className="flex justify-center flex-wrap gap-2">
+              {article.tags.map((tag) => (
+                <Badge key={tag} variant="outline">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
+          <Image
+            src={`/api/image/${article.slug}/thumbnail.png`}
+            alt={article.title}
+            width={1600}
+            height={900}
+            className="w-full h-auto mx-auto rounded-lg"
+            priority
+            quality={100}
+          />
         </div>
-        <Image
-          src={`/api/image/${article.slug}/thumbnail.png`}
-          alt={article.title}
-          width={1600}
-          height={900}
-          className="w-full h-auto mx-auto rounded-lg"
-          priority
-          quality={100}
-        />
-      </div>
-      <div className="space-y-8">
-        <TableOfContent markdown={articleContent} />
-        <RenderArticleContent content={articleContent} />
+        <div className="space-y-8">
+          <TableOfContent markdown={articleContent} />
+          <RenderArticleContent content={articleContent} />
+        </div>
       </div>
       <AnfrageCTA
+        className="p-4"
         title={article?.cta?.title}
         description={article?.cta?.description}
         secondaryBotton={{

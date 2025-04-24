@@ -15,25 +15,26 @@ const CODING_ICONS = [
 ];
 
 const CHECK_POINTS = [
-  "...bei komplexen Anpassungen Unterstützung benötigen",
-  "...keine individuellen Programmierungen anbieten",
-  "...aus Kapazitätsgründen Unterstützung suchen",
+  "Individuelle WordPress Programmierungen",
+  "Aufträge, die du auslagern möchtest",
+  "Lösungen, um dein Angebot zu erweitern",
 ];
 
 export default function Hero() {
   return (
     <section className="w-full">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-        <div className="flex flex-col justify-center space-y-4 p-4">
+        <div className="flex flex-col justify-center space-y-8 p-4">
           <Typography variant="h1">
             WordPress Entwickler für individuelle Lösungen
           </Typography>
-          <div className="space-y-4">
-            <p>
-              <strong>Speziell für:</strong> Webdesigner, Agenturen und
-              Freelancer, die beruflich mit WordPress arbeiten und...
+          <div>
+            <p className="text-lg">
+              Du bist WordPress Profi
+              <br />
+              und suchst jemanden für:
             </p>
-            <ul className="space-y-2 text-muted-foreground my-8">
+            <ul className="space-y-2 text-muted-foreground my-2">
               {CHECK_POINTS.map((point) => (
                 <li key={point} className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
