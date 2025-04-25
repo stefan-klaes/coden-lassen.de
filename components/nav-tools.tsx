@@ -1,5 +1,5 @@
 "use client";
-import { ChevronRight } from "lucide-react";
+import { ArrowLeftIcon, ChevronRight } from "lucide-react";
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -20,6 +20,27 @@ import { TOOLS } from "@/config/tools/tools";
 export function NavTools() {
   const pathname = usePathname();
   return (
+    <>
+    {pathname.startsWith("/tools/") ? (
+    <SidebarMenu className="mt-4">
+    <SidebarMenuItem>
+        <SidebarMenuButton
+          asChild
+          tooltip="Alle Tools"
+          className={
+            pathname === `/tools`
+              ? "bg-zinc-200 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-800"
+              : ""
+          }
+        >
+          <Link href="/tools">
+            <ArrowLeftIcon />
+            <span>Alle Tools</span>
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+      </SidebarMenu>
+    ) : null}
     <Collapsible title="Tools" defaultOpen className="group/collapsible">
       <SidebarGroup>
         <SidebarGroupLabel
@@ -57,5 +78,6 @@ export function NavTools() {
         </CollapsibleContent>
       </SidebarGroup>
     </Collapsible>
+    </>
   );
 }

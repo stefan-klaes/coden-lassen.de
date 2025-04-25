@@ -72,22 +72,6 @@ export function useApiFetcher<E extends Endpoint>() {
 
   const { refetchSession } = useSession();
 
-  // Helper to get cookie value by name
-  function getCookie(name: string): string | null {
-    const match = document.cookie.match(
-      new RegExp("(^| )" + name + "=([^;]+)")
-    );
-    return match ? decodeURIComponent(match[2]) : null;
-  }
-
-  // Helper to set cookie
-  function setCookie(name: string, value: string, days = 1) {
-    const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = `${name}=${encodeURIComponent(
-      value
-    )}; expires=${expires}; path=/`;
-  }
-
   const fetcher = async (
     endpoint: E,
     config: EndpointConfig[E]["request"]
@@ -98,19 +82,11 @@ export function useApiFetcher<E extends Endpoint>() {
       // mock 3s delay
       await new Promise((resolve) => setTimeout(resolve, 3000));
 
-      // Try to get bearer token from cookie first
-      let bearerToken = getCookie("sclbrtkn");
-
-      if (!bearerToken) {
-        const session = await fetch("/api/user/me").then((res) => res.json());
-        if (!session?.bearerToken) {
-          throw new Error("Session not found or invalid.");
-        }
-        bearerToken = session.bearerToken;
-        if (bearerToken) {
-          setCookie("sclbrtkn", bearerToken);
-        }
+      const session = await fetch("/api/user/me").then((res) => res.json());
+      if (!session?.bearerToken) {
+        throw new Error("Session not found or invalid.");
       }
+      const bearerToken = session.bearerToken;
 
       const url = `${API_URL}${ENDPOINTS[endpoint]}`;
       console.log({ url, bearerToken });
@@ -124,14 +100,23 @@ export function useApiFetcher<E extends Endpoint>() {
       });
 
       if (!response.ok) {
-        throw new Error("Alt-Text-Generierung fehlgeschlagen.");
+        const statusCode = response.status;
+        const errorMessages: Record<string, string> = {
+          "401": "Nicht autorisiert",
+          "402": "Nicht genug Token verfügbar",
+          "403": "Zugriff verweigert",
+          "404": "Ressource nicht gefunden",
+          "500": "Interner Serverfehler",
+        }
+        const errorMessage = errorMessages[statusCode.toString()] || "Ein Fehler ist aufgetreten.";
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
       setData(result);
       return result;
     } catch (error) {
-      console.error("Error in API fetcher:", error);
+      console.log("Error in API fetcher:", error);
       toast.error(
         error instanceof Error ? error.message : "Ein Fehler ist aufgetreten."
       );

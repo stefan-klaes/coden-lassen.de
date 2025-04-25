@@ -69,25 +69,19 @@ export function FileUploader({
 
   if (files.length > 0) {
     return (
-      <div className={cn("relative border rounded overflow-hidden", className)}>
-        <div className="flex flex-wrap gap-4">
+      <div className={cn("relative flex items-center justify-center border rounded overflow-hidden", className)}>
           {files.map((file, i) => {
             const url = URL.createObjectURL(file);
             return (
-              <div
-                className="relative flex items-center justify-center bg-black rounded aspect-square"
-                key={i}
-              >
-                <div className="flex items-center justify-center w-full h-full">
+              <React.Fragment key={i}>
                   <Image
                     height={600}
                     width={600}
                     src={url}
                     alt={file.name}
-                    className="object-contain mx-auto bg-white"
+                    className="object-contain mx-auto bg-white max-h-full max-w-full"
                     onLoad={() => URL.revokeObjectURL(url)}
                   />
-                </div>
                 <Button
                   size="icon"
                   variant="secondary"
@@ -100,10 +94,9 @@ export function FileUploader({
                 >
                   <X className="w-4 h-4" />
                 </Button>
-              </div>
+              </React.Fragment>
             );
           })}
-        </div>
       </div>
     );
   }

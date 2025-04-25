@@ -9,4 +9,5 @@ export const ARTICLE_DETAILS: Record<BlogsSlug, BlogArticle> = {
   "wordpress-code-sicherheit": articles.codeSafety,
   "wordpress-theme-selbst-erstellen": articles.themes,
   "wordpress-external-api": articles.externalApi,
+  "individuellen-code-wordpress": articles.individuellenCodeWordpress,
 };

@@ -32,10 +32,19 @@ export function SessionProvider({ children }: SessionProviderProps) {
 
   const fetchSession = async () => {
     try {
-      const res = await fetch("/api/auth/session");
+      const res = await fetch("/api/user/me");
       if (res.ok) {
-        const data = await res.json();
-        setSession(data);
+        const data = await res.json() as {
+          session: Session | null;
+          bearerToken: string | null;
+        }
+        const bearerToken = data.bearerToken;
+        if (bearerToken) {
+          localStorage.setItem("sclbrrtkn", bearerToken);
+        } else {
+          localStorage.removeItem("sclbrrtkn");
+        }
+        setSession(data?.session || null);
       } else {
         setSession(null);
       }

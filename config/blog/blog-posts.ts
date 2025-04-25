@@ -6,6 +6,7 @@ export const BLOG_SLUGS = [
   "wordpress-theme-selbst-erstellen",
   "wordpress-external-api",
   "wordpress-code-sicherheit",
+  "individuellen-code-wordpress",
 ] as const;
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -92,7 +93,7 @@ export const BLOG_POSTS: BlogPost[] = [
         atts: {
           title: "External API",
           content: `status: 400,\nerror: "Bad Request"`,
-          url: "WordPress > Backend",
+          url: "Deine Website",
         },
       },
       motiv: "8",
@@ -127,5 +128,33 @@ export const BLOG_POSTS: BlogPost[] = [
       "Wichtige Sicherheitsrichtlinien und Best Practices für WordPress-Entwickler. Erkenne typische Sicherheitslücken und lerne, wie du deinen Code nach WordPress-Standards absichern kannst.",
     date: "2024-06-08",
     tags: ["WordPress", "Sicherheit", "Best Practices", "Entwicklung"],
+  },
+  {
+    slug: "individuellen-code-wordpress",
+    title: "Individuellen Code in WordPress einbauen",
+    thumbnail: {
+      config: {
+        type: "code_editor",
+        atts: {
+          filename: "functions.php",
+          language: "php",
+          codeLines: [
+            "<?php",
+            "[empty]",
+            "// TODO",
+            "// Code hier hinzufügen",
+          ],
+        },
+      },
+      motiv: "5",
+    },
+    excerpt:
+      "Lerne, wie du individuellen Code sicher und effektiv in deine WordPress-Website integrierst – von einfachen Snippets bis zu komplexen Anpassungen.",
+    date: "2025-04-26",
+    tags: ["WordPress", "Code", "Entwicklung", "Anpassung"],
+    cta: {
+      title: "Individuelle Anpassung gewünscht?",
+      description: "Melde dich für professionelle Unterstützung bei der Integration von individuellem Code.",
+    },
   },
 ];

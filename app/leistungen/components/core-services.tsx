@@ -19,7 +19,7 @@ export default function CoreServices() {
             />
           </div>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4 px-4">
           <Typography variant="h2">
             Individuelles WordPress Plugin als Lösung für deine Anfroderungen
           </Typography>
@@ -51,7 +51,7 @@ export default function CoreServices() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start px-4">
         <div className="order-2 lg:order-1 space-y-4">
           <Typography variant="h2">
             WordPress durch individuellen Code erweitern

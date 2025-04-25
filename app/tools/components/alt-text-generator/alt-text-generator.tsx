@@ -1,6 +1,8 @@
 "use client";
 import { FileUploader } from "@/components/blocks/file-upload";
+import RequiredToken from "@/components/blocks/required-token";
 import { Button } from "@/components/ui/button";
+import { getTool } from "@/config/tools/utils/get-tool";
 import { useApiFetcher } from "@/hooks/api-fetcher";
 import { cn } from "@/lib/utils";
 import { fileToBase64 } from "@/lib/utils/filte-to-base64";
@@ -10,6 +12,8 @@ import { useEffect, useState } from "react";
 export default function KiAltTextGenerator() {
   const [files, setFiles] = useState<File[]>([]);
   const { fetcher, isPending, data, reset } = useApiFetcher<"image-alt-text">();
+
+  const tool = getTool("ki-alt-text-generator");
 
   const handleGenerate = async () => {
     const base64Url = await fileToBase64(files[0]);
@@ -30,7 +34,7 @@ export default function KiAltTextGenerator() {
     <div className="max-w-screen-md mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <FileUploader
-          className="aspect-square"
+          className="aspect-[calc(16/9)] lg:aspect-square"
           maxItems={1}
           allowedFormats={["image/jpeg", "image/png", "image/webp"]}
           maxSize={5 * 1024 * 1024} // 5MB
@@ -63,6 +67,7 @@ export default function KiAltTextGenerator() {
             </div>
           </div>
           <div className="mt-4">
+            <RequiredToken requiredToken={tool.requiredToken} />
             <Button
               variant="ai"
               className="w-full"

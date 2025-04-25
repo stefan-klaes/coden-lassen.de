@@ -11,5 +11,6 @@ export const TOOLS: Tool[] = [
       "Generiere automatisch Alt-Texte für deine Bilder mit Hilfe von künstlicher Intelligenz.",
     image: "/leistungen-wordpress-entwickler.png",
     icon: SparklesIcon,
+    requiredToken: 1,
   },
 ];

@@ -109,9 +109,11 @@ export function customMarkdownItems(html: string) {
 
     // Push the HTML before the code block
     if (index > lastIndex) {
+      const content = html
+        .slice(lastIndex, index)
       htmlBlocks.push({
         type: "html",
-        content: html.slice(lastIndex, index),
+        content,
       });
     }
 
@@ -130,9 +132,10 @@ export function customMarkdownItems(html: string) {
 
   // Push any remaining HTML after the last code block
   if (lastIndex < html.length) {
+    const content = html.slice(lastIndex)
     htmlBlocks.push({
       type: "html",
-      content: html.slice(lastIndex),
+      content,
     });
   }
 

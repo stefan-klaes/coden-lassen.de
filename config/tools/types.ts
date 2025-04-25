@@ -7,6 +7,7 @@ export type Tool = {
   description: string;
   image: string;
   icon: LucideIcon;
+  requiredToken: number;
 };
 
 export type ToolSlug = (typeof MINI_TOOL_SLUGS)[number];

@@ -1,7 +1,6 @@
 import {
   CodeIcon,
   LayoutGridIcon,
-  ProjectorIcon,
   RssIcon,
   SquareUserRoundIcon,
 } from "lucide-react";
@@ -11,11 +10,6 @@ export const MAIN_NAVIGATION = [
     title: "Leistungen",
     url: "/leistungen",
     icon: CodeIcon,
-  },
-  {
-    title: "Referenzen",
-    url: "/referenzen",
-    icon: ProjectorIcon,
   },
   {
     title: "Über mich",

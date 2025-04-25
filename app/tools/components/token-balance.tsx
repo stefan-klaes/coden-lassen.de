@@ -9,9 +9,9 @@ export default function TokenBalance() {
   const isLoggedIn = !!session?.user?.email;
   return (
     <div
-      className="max-w-screen-md mx-auto flex items-center gap-4 px-4 py-2 rounded-full border bg-gradient-to-br from-purple-50 to-purple-100"
+      className="text-purple-700 max-w-screen-md mx-auto flex items-center gap-4 px-4 py-2 rounded-full border bg-gradient-to-br from-purple-50 to-purple-100"
     >
-        <SparkleIcon className="w-5 h-5 text-purple-700" />
+        <SparkleIcon className="w-5 h-5" />
       <div className="flex-1">
         {!isLoggedIn ? (
           <span>
@@ -20,7 +20,7 @@ export default function TokenBalance() {
         ) : (
           <span>
             Du bist angemeldet und hast{' '}
-            <span className="font-semibold text-purple-700">
+            <span className="font-semibold">
               {balance} Token
             </span>{' '}
             zur Verfügung.

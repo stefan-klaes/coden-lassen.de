@@ -128,3 +128,13 @@
   max-width: 100%;
   white-space: pre-wrap;
 }
+
+.prose code {
+  background: #fff5cc;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.prose code:before, .prose code:after {
+  content: "";
+}

@@ -60,7 +60,7 @@ $email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : "" ;`,
     language: "text",
     filename: "README.txt",
     code: `= 1.0.2 - 2025-04-07 =
-* Feat: Einbau einer Download Funktion für die XML-Datei
+* Feat: Einbau einer Download Funktion
 
 = 1.0.1 - 2025-04-05 =
 * Fix: Tippfehler in der Beschreibung korrigiert

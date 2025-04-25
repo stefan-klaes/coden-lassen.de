@@ -7,10 +7,10 @@ import { Why } from "../(home)/components/why";
 
 export default function LeistungenPage() {
   return (
-    <section className="grid gap-24 p-4">
-      <div className="grid gap-24">
+    <section className="grid gap-24">
+      <div className="grid gap-12 p-4">
         <HeadStarter
-          title="Diese Leistungen biete ich als WordPress Entwickler an"
+          title="Meine Leistungen als WordPress Entwickler"
           description={
             <span>
               Ich spezialisiere mich auf{" "}
@@ -27,7 +27,7 @@ export default function LeistungenPage() {
         <ServiceChips />
       </div>
       <CoreServices />
-      <div className="grid gap-24">
+      <div className="grid gap-24 p-4">
         <Workflow />
         <Why />
         <AnfrageCTA
