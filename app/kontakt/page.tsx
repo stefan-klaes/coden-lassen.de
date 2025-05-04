@@ -10,9 +10,10 @@ import { Typography } from "@/components/ui/typography";
 import { Loader2Icon, SendIcon } from "lucide-react";
 import AboutMe from "@/components/blocks/about-me";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import SA_sendEmail from "@/lib/email/sa.send-email";
+
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 const FormSchema = z.object({
   name: z.string().min(2, { message: "Name muss mindestens 2 Zeichen haben." }),
@@ -38,13 +39,22 @@ export default function ContactPage() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     setLoading(true);
     try {
-      await SA_sendEmail({
-        replyTo: data.email,
-        subject: data.subject,
-        text: data.message,
+      const res = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          replyTo: data.email,
+          subject: data.subject,
+          text: data.message,
+        }),
       });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error || "Fehler beim Senden der Nachricht.");
       setSuccess(true);
       form.reset();
+    } catch (error) {
+      console.error(error);
+      toast.error("E-Mail konnte nicht gesendet werden.");
     } finally {
       setLoading(false);
     }
