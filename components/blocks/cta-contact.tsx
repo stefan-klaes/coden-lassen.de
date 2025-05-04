@@ -47,10 +47,10 @@ export default function AnfrageCTA({
           </div>
         </div>
         <Image
-          src="/wordpress-entwickler-anfragen-kontakt.png"
+          src="/wordpress-entwickler-anfrage.webp"
           alt="WordPress Entwickler PHP"
           className={cn(
-            "bottom-0 right-0 opacity-100 h-[90%] w-auto hidden xl:block absolute",
+            "bottom-0 right-0 opacity-100 h-[80%] w-auto hidden xl:block absolute",
             imageClass
           )}
           height={400}

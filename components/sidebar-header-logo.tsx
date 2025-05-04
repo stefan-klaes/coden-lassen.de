@@ -6,7 +6,7 @@ export default function SidebarHeaderLogo() {
     <Link href="/" className="flex items-center space-x-2">
       <div className="text-sidebar-primary-foreground flex aspect-square size-10 rounded-lg">
         <Image
-          src="/wordpress-entwickler-profile-image.png"
+          src="/stefan-coden-lassen-pfp.webp"
           alt="WordPress Entwickler"
           width={120}
           height={120}

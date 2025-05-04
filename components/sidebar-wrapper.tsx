@@ -21,7 +21,7 @@ export default function SidebarWrapper({
           </div>
         </header>
         <div className="absolute inset-0 top-12 flex flex-col overflow-y-auto overflow-x-hidden">
-          <div className="flex-1 pb-12 md:pb-0">{children}</div>
+          <div className="flex-1 pb-16 md:pb-4 pt-4 px-4">{children}</div>
         </div>
       </SidebarInset>
     </SidebarProvider>

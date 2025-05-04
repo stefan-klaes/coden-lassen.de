@@ -65,7 +65,7 @@ export default async function BlopgArticlePage({
 
   return (
     <div className="space-y-24">
-      <div className="space-y-24 p-4 w-full max-w-screen-md mx-auto">
+      <div className="space-y-24 w-full max-w-screen-md mx-auto">
         <div className="grid gap-8">
           <div className="flex flex-col text-center justify-center space-y-4">
             <Typography variant="h1">{article.title}</Typography>
@@ -94,7 +94,6 @@ export default async function BlopgArticlePage({
         </div>
       </div>
       <AnfrageCTA
-        className="p-4"
         title={article?.cta?.title}
         description={article?.cta?.description}
         secondaryBotton={{

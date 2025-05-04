@@ -10,12 +10,10 @@ export default function HomePage() {
     <div className="space-y-32">
       <Hero />
       <Services />
-      <div className="space-y-32 p-4">
-        <ServiceChips />
-        <Why />
-        <Projects />
-        <AnfrageCTA />
-      </div>
+      <ServiceChips />
+      <Why />
+      <Projects />
+      <AnfrageCTA />
     </div>
   );
 }

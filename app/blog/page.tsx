@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function BlogPage() {
   return (
-    <div className="p-4 space-y-12">
+    <div className="space-y-12">
       <HeadStarter
         title="WordPress Blog eines Entwicklers"
         description={

@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section className="w-full">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-        <div className="flex flex-col justify-center space-y-8 p-4">
+        <div className="flex flex-col justify-center space-y-8">
           <Typography variant="h1">
             WordPress Entwickler für individuelle Lösungen
           </Typography>
@@ -60,22 +60,14 @@ export default function Hero() {
         <div className="flex justify-center lg:justify-end h-full">
           <div className="h-full w-full relative overflow-hidden lg:rounded-bl-lg">
             <Image
-              src="/wordpress-entwickler-stefan-coden-lassen.png" //wordpress-entwickler.jpg
+              src="/stefan-coden-lassen.webp"
               alt="WordPress Entwickler mit Laptop"
-              width={1600}
-              height={900}
-              className="w-full h-full object-cover object-center"
+              width={800}
+              height={1200}
+              className="h-full w-auto max-h-[480px] mx-auto"
               priority
               quality={100}
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-              <div className="flex items-center space-x-2">
-                <div className="rounded-full bg-green-500 h-2.5 w-2.5"></div>
-                <p className="text-sm font-medium text-white">
-                  Verfügbar für neue Projekte
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

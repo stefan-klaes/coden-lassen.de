@@ -25,7 +25,7 @@ export default async function ToolPage({
   }
 
   return (
-    <div className="p-4 space-y-16">
+    <div className="space-y-16">
       <div className="space-y-4">
         <Typography variant="h1" className="text-xl text-center">
           {tool.name}

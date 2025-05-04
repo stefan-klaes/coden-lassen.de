@@ -8,18 +8,19 @@ export default function CoreServices() {
     <div className="grid gap-24">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
         <div className="flex justify-start h-full">
-          <div className="border-b lg:border-b-0 min-h-72 lg:min-h-96 lg:h-auto w-full relative overflow-hidden">
+          <div className="w-full relative overflow-hidden">
             <Image
-              src="/individuelles-wordpress-plugin.png"
+              src="/individuelles-wordpress-plugin-entwickler.webp"
               alt="WordPress Entwickler mit Laptop"
-              fill
-              className="object-contain object-left"
+              width={800}
+              height={1200}
+              className="h-full w-auto max-h-[420px] mx-auto"
               priority
               quality={100}
             />
           </div>
         </div>
-        <div className="space-y-4 px-4">
+        <div className="space-y-4">
           <Typography variant="h2">
             Individuelles WordPress Plugin als Lösung für deine Anfroderungen
           </Typography>
@@ -51,7 +52,7 @@ export default function CoreServices() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start px-4">
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
         <div className="order-2 lg:order-1 space-y-4">
           <Typography variant="h2">
             WordPress durch individuellen Code erweitern
@@ -79,15 +80,18 @@ export default function CoreServices() {
           </p>
         </div>
         <div className="order-1 lg:order-2 flex justify-center h-full">
-          <div className="border-b lg:border-b-0 min-h-72 lg:min-h-96 lg:h-auto w-full relative overflow-hidden">
-            <Image
-              src="/wordpress-entwickler-php.png"
-              alt="WordPress Entwickler mit Laptop"
-              fill
-              className="object-contain object-center"
-              priority
-              quality={100}
-            />
+          <div className="w-full flex justify-center">
+            <div className="relative border-16 border-zinc-200 bg-zinc-100 overflow-hidden flex items-center justify-center">
+              <Image
+                src="/individueller-wordpress-code.webp"
+                alt="Individueller WordPress Code"
+                width={800}
+                height={1200}
+                className="object-cover h-full w-auto max-h-[360px] mx-auto"
+                priority
+                quality={100}
+              />
+            </div>
           </div>
         </div>
       </div>

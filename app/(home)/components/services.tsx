@@ -5,20 +5,20 @@ export default function Services() {
   return (
     <section className="w-full">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-        <div className="flex justify-start h-full">
-          <div className="aspect-[4/3] lg:aspect-auto lg:h-full w-full relative overflow-hidden">
+        <div className="order-2 lg:order-1 flex justify-start h-full">
+          <div className="w-full relative overflow-hidden">
             <Image
-              src="/leistungen-wordpress-entwickler.png"
+              src="/wordpress-entwickler-leistungen.webp"
               alt="WordPress Entwickler mit Laptop"
-              width={1600}
-              height={900}
-              className="w-full h-full object-contain object-left lg:object-cover"
+              width={800}
+              height={1200}
+              className="h-full w-auto max-h-[520px] mx-auto"
               priority
               quality={100}
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center space-y-4 px-4">
+        <div className="order-1 lg:order-2 flex flex-col justify-center space-y-4">
           <Typography variant="h2">
             Die folgenden Leistungen biete ich als WordPress Entwickler an.
           </Typography>

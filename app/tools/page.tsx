@@ -7,7 +7,7 @@ import TokenBalance from "./components/token-balance";
 
 export default function ToolsPage() {
   return (
-    <section className="p-4 space-y-12">
+    <section className="space-y-12">
       <HeadStarter
         title="Nützliche WordPress Mini-Tools"
         description={
