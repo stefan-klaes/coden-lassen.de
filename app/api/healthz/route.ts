@@ -3,7 +3,7 @@ export const runtime = "edge";
 import { NextResponse } from "next/server";
 
 
-export default async function GET(_req: Request) {
+export async function GET() {
     const test = process.env.SMTP_USER || "na"
     return NextResponse.json({ test })
 }
