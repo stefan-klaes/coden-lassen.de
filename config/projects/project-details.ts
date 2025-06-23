@@ -19,6 +19,8 @@ export type ProjectDetails = {
     src: string;
     alt: string;
     description?: string;
+    type?: "screenshot" | "other";
+    className?: string;
   }[];
   links?: {
     title: string;

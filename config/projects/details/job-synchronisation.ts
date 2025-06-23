@@ -31,64 +31,24 @@ const CONFIG: ProjectDetails = {
 
   client: "Unternehmen mit externer Jobbörse",
 
-  screenshots: [
-    {
-      src: "/referenzen/cronjob-wordpress.png",
-      url: "WordPress Admin-Bereich",
-      alt: "Job Synchronisation Dashboard",
-      description:
-        "Dashboard mit Synchronisationsstatus und letzten Aktivitäten.",
-    },
-  ],
   code: [
     {
       filename: "sync-service.php",
       language: "php",
       description: "Code für die Job-Synchronisation",
-      code: `class Job_Sync_Service {
-    private $api_client;
-    private $last_sync;
-    
-    public function __construct() {
-        $this->api_client = new API_Client(get_option('job_sync_api_key'));
-        $this->last_sync = get_option('job_sync_last_run', 0);
-        
-        // Cronjob registrieren
-        if (!wp_next_scheduled('job_sync_daily_event')) {
-            wp_schedule_event(time(), 'daily', 'job_sync_daily_event');
-        }
-        
-        add_action('job_sync_daily_event', array($this, 'sync_jobs'));
-    }
-    
-    public function sync_jobs() {
-        $start_time = microtime(true);
-        $log = new Sync_Logger();
-        $log->info('Starting job synchronization');
-        
-        try {
-            // Änderungen seit letzter Synchronisation abrufen
-            $jobs = $this->api_client->get_jobs_since($this->last_sync);
-            
-            // Daten verarbeiten
-            $stats = $this->process_jobs($jobs);
-            
-            // Letzte Synchronisierungszeit aktualisieren
-            update_option('job_sync_last_run', time());
-            $log->info('Sync completed. Added: ' . $stats['added'] . ', Updated: ' . $stats['updated'] . ', Removed: ' . $stats['removed']);
-        } catch (Exception $e) {
-            $log->error('Sync failed: ' . $e->getMessage());
-            $this->send_admin_notification('Job sync failed', $e->getMessage());
-        }
-        
-        $execution_time = microtime(true) - $start_time;
-        $log->info('Execution time: ' . round($execution_time, 2) . ' seconds');
-    }
-    
-    private function process_jobs($jobs) {
-        // Implementierung der Job-Verarbeitung
-        // ...
-    }
+      code: `/**
+  * Register api endpoint to sync jobs
+  */
+public function register_endpoints()
+{
+  register_rest_route('xml-job-importer', '/sync-jobs', array(
+    'methods' => 'GET',
+    'callback' => array($this, 'endpoint_sync_jobs'),
+  ));
+  register_rest_route('xml-job-importer', '/schedule-sync-jobs', array(
+    'methods' => 'GET',
+    'callback' => array($this, 'trigger_sync_async'),
+  ));
 }`,
     },
   ],

@@ -28,53 +28,7 @@ const CONFIG: ProjectDetails = {
     "MySQL",
   ],
 
-  client: "Verschiedene Unternehmen mit Etikettierungsbedarf",
-
-  screenshots: [
-    {
-      src: "/referenzen/etikettendrucker-wordpress-code.png",
-      url: "WordPress-Backend",
-      alt: "PDF Etiketten Generator",
-      description:
-        "Backend-Interface zur Konfiguration und Erstellung von Etiketten.",
-    },
-  ],
-  code: [
-    {
-      filename: "pdf-generator.php",
-      language: "php",
-      description: "PDF-Generierung für Etiketten",
-      code: `class PDF_Etiketten_Generator {
-    private $pdf;
-    private $template;
-    
-    public function __construct($template = 'default') {
-        require_once PLUGIN_PATH . '/lib/dompdf/autoload.inc.php';
-        $this->pdf = new Dompdf\\Dompdf();
-        $this->template = $template;
-    }
-    
-    public function generate_label($data) {
-        // Template laden und mit Daten befüllen
-        $html = $this->load_template($this->template, $data);
-        
-        // PDF-Einstellungen für Labeldrucker
-        $this->pdf->setPaper([0, 0, $data['width'], $data['height']], 'portrait');
-        $this->pdf->loadHtml($html);
-        $this->pdf->render();
-        
-        return $this->pdf->output();
-    }
-    
-    private function load_template($template, $data) {
-        // HTML-Template mit Daten befüllen
-        ob_start();
-        include PLUGIN_PATH . "/templates/{$template}.php";
-        return ob_get_clean();
-    }
-}`,
-    },
-  ],
+  client: "Ledermanufaktur",
 };
 
 export default CONFIG;

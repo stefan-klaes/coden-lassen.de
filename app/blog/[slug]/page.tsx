@@ -36,13 +36,12 @@ export async function generateMetadata({
   // If project doesn't exist, return basic metadata
   if (!article) {
     return {
-      title: "Projekt nicht gefunden",
-      description: "Die angeforderte Referenz existiert nicht.",
+      title: "Blog",
     };
   }
 
   return {
-    title: `Referenz | ${article.title}`,
+    title: `Blog | ${article.title}`,
     description: article.excerpt,
   };
 }

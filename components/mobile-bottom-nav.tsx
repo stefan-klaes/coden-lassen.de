@@ -8,7 +8,7 @@ import {
   LayoutGridIcon,
   Menu,
   ProjectorIcon,
-  SendIcon
+  SendIcon,
 } from "lucide-react";
 import { useState } from "react";
 import {
@@ -25,7 +25,6 @@ import Link from "./ui/custom-link";
 import SidebarHeaderLogo from "./sidebar-header-logo";
 import { PROJECTS } from "@/config/projects/projects";
 import { usePathname } from "next/navigation";
-import { NavUser } from "./nav-user";
 
 const MOBILE_NAV = [
   {
@@ -66,14 +65,14 @@ export default function MobileBottomNav({ className }: { className?: string }) {
       >
         {pathname.startsWith("/tools") ? (
           <div className="grid h-12 grid-cols-5">
-          <button
-            onClick={() => setDrawerOpen(true)}
-            className="flex flex-col items-center justify-center space-y-1"
-          >
-            <Menu className="size-4" />
-            <span className="text-xs">Menu</span>
-          </button>
-          <Link
+            <button
+              onClick={() => setDrawerOpen(true)}
+              className="flex flex-col items-center justify-center space-y-1"
+            >
+              <Menu className="size-4" />
+              <span className="text-xs">Menu</span>
+            </button>
+            <Link
               href="/tools"
               onClick={closeDrawer}
               className={cn(
@@ -84,7 +83,7 @@ export default function MobileBottomNav({ className }: { className?: string }) {
               <LayoutGridIcon className="size-4" />
               <span className="text-xs">Tools</span>
             </Link>
-          <Link
+            <Link
               href="/"
               onClick={closeDrawer}
               className={cn(
@@ -95,34 +94,31 @@ export default function MobileBottomNav({ className }: { className?: string }) {
               <HomeIcon className="size-4" />
               <span className="text-xs">Home</span>
             </Link>
-            <div className="col-span-2 flex items-center pr-4">
-              <NavUser isBottomNav={true} isCollapsed={false} />
-            </div>
           </div>
-        ): (
-        <div className="grid h-12 grid-cols-5">
-          <button
-            onClick={() => setDrawerOpen(true)}
-            className="flex flex-col items-center justify-center space-y-1"
-          >
-            <Menu className="size-4" />
-            <span className="text-xs">Menu</span>
-          </button>
-          {MOBILE_NAV.map((item, i) => (
-            <Link
-              key={i}
-              href={item.url}
-              onClick={closeDrawer}
-              className={cn(
-                "flex flex-col items-center justify-center space-y-1",
-                pathname === item.url ? "font-semibold" : ""
-              )}
+        ) : (
+          <div className="grid h-12 grid-cols-5">
+            <button
+              onClick={() => setDrawerOpen(true)}
+              className="flex flex-col items-center justify-center space-y-1"
             >
-              <item.icon className="size-4" />
-              <span className="text-xs">{item.title}</span>
-            </Link>
-          ))}
-        </div>
+              <Menu className="size-4" />
+              <span className="text-xs">Menu</span>
+            </button>
+            {MOBILE_NAV.map((item, i) => (
+              <Link
+                key={i}
+                href={item.url}
+                onClick={closeDrawer}
+                className={cn(
+                  "flex flex-col items-center justify-center space-y-1",
+                  pathname === item.url ? "font-semibold" : ""
+                )}
+              >
+                <item.icon className="size-4" />
+                <span className="text-xs">{item.title}</span>
+              </Link>
+            ))}
+          </div>
         )}
       </div>
 
@@ -139,23 +135,24 @@ export default function MobileBottomNav({ className }: { className?: string }) {
             <div className="grid gap-8 pb-8">
               <div className="grid grid-cols-2 gap-2">
                 {MAIN_NAVIGATION.map((item, i) => {
-                if (item.title === "Referenzen") {
-                  return null
-                }
-                return (
-                  <Button
-                    variant="outline"
-                    className="w-full justify-start truncate"
-                    onClick={closeDrawer}
-                    key={i}
-                    asChild
-                  >
-                    <Link href={item.url}>
-                      <item.icon className="size-4" />
-                      <span className="truncate">{item.title}</span>
-                    </Link>
-                  </Button>
-                )})}
+                  if (item.title === "Referenzen") {
+                    return null;
+                  }
+                  return (
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start truncate"
+                      onClick={closeDrawer}
+                      key={i}
+                      asChild
+                    >
+                      <Link href={item.url}>
+                        <item.icon className="size-4" />
+                        <span className="truncate">{item.title}</span>
+                      </Link>
+                    </Button>
+                  );
+                })}
               </div>
               <div className="grid gap-2">
                 <p className="text-sm font-medium">Referenzen</p>

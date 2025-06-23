@@ -8,15 +8,15 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
 
     // Validate required fields
-    if (!data.replyTo || !data.subject || (!data.text && !data.html)) {
+    if (!data.replyTo || !data.subject || !data.text) {
       return NextResponse.json({ success: false, error: "Missing required fields." });
     }
 
     await sendEmail({
       replyTo: data.replyTo,
+      replyToName: data.replyToName || "",
       subject: data.subject,
       text: data.text,
-      html: data.html,
     });
 
     return NextResponse.json({ success: true });

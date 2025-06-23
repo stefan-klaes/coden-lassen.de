@@ -24,7 +24,7 @@ export default function WordpressFreelancerPage() {
   return (
     <div className="grid gap-24">
       <div className="grid gap-12 lg:grid-cols-2 items-start">
-        <div className="flex flex-col justify-center space-y-4 p-4">
+        <div className="flex flex-col justify-center space-y-4">
           <Typography variant="h1">
             Ich bin Stefan,
             <br />
@@ -39,7 +39,7 @@ export default function WordpressFreelancerPage() {
         </div>
         <div className="pt-4 relative flex justify-center h-[320px] lg:h-full border-b lg:border-b-0">
           <Image
-            src="/wordpress-entwickler-php.png"
+            src="/individuelles-wordpress-plugin-entwickler.webp"
             alt="WordPress Entwickler mit Laptop"
             fill
             className="w-auto h-full object-contain object-center"
@@ -51,7 +51,6 @@ export default function WordpressFreelancerPage() {
       <AboutMeChat />
       <Projects />
       <AnfrageCTA
-        className="p-4"
         title="Du suchst einen WordPress Entwickler?"
         description="Lass uns in Kontakt treten. Wenn du eine Einschätzung zur Umsetzbarkeit spezieller Anforderungen benötigst oder generell in Kontakt treten möchtest, melde dich gerne."
       />
@@ -125,7 +124,7 @@ function AboutMeChat() {
   ];
 
   return (
-    <div className="space-y-4 p-4">
+    <div className="space-y-4">
       <HeadStarter
         title="Lerne mich kennen"
         description="Hier ist ein kurzer Überblick über mich und meine Arbeitsweise."

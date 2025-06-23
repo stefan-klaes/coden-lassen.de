@@ -1,4 +1,5 @@
 import HeadStarter from "@/components/blocks/head-starter";
+import { cn } from "@/lib/utils";
 
 type Message = {
   title: string;
@@ -49,7 +50,7 @@ function ChatBubble({
     return (
       <div className="flex justify-center mb-4">
         <div
-          className="max-w-md p-4 rounded-xl shadow bg-gray-200 flex flex-col items-center border"
+          className="max-w-md p-4 rounded-xl shadow bg-indigo-900 text-background flex flex-col items-center border"
           style={{
             borderTopLeftRadius: "1.2em",
             borderTopRightRadius: "1.2em",
@@ -58,7 +59,7 @@ function ChatBubble({
           }}
         >
           <div className="font-semibold mb-1 flex items-center gap-2">
-            <span className="inline-flex items-center gap-1">
+            <span className="inline-flex items-center gap-1 bg-white rounded-full p-1">
               <span role="img" aria-label="Kunde">
                 🧑‍💼
               </span>
@@ -78,16 +79,17 @@ function ChatBubble({
   return (
     <div className={`flex ${isKunde ? "justify-end" : "justify-start"} mb-4`}>
       <div
-        className={`max-w-md p-4 rounded-xl border ${
-          isKunde ? "bg-background" : "bg-primary text-background"
-        }`}
+        className={cn(
+          "max-w-md p-4 rounded-xl border text-background",
+          isKunde ? "bg-cyan-900" : "bg-blue-900"
+        )}
         style={{
           borderTopLeftRadius: isKunde ? "0.5em" : "1.2em",
           borderTopRightRadius: isKunde ? "1.2em" : "0.5em",
         }}
       >
         <div className="font-semibold mb-1 flex items-center gap-2">
-          <span className="inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-1 bg-white rounded-full p-1">
             {isKunde ? (
               <span role="img" aria-label="Kunde">
                 🧑‍💼

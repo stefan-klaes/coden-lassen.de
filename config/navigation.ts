@@ -1,9 +1,4 @@
-import {
-  CodeIcon,
-  LayoutGridIcon,
-  RssIcon,
-  SquareUserRoundIcon,
-} from "lucide-react";
+import { CodeIcon, RssIcon, SquareUserRoundIcon } from "lucide-react";
 
 export const MAIN_NAVIGATION = [
   {
@@ -20,10 +15,5 @@ export const MAIN_NAVIGATION = [
     title: "Blog",
     url: "/blog",
     icon: RssIcon,
-  },
-  {
-    title: "Tools",
-    url: "/tools",
-    icon: LayoutGridIcon,
   },
 ];

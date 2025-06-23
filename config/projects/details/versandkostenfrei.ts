@@ -33,124 +33,133 @@ const CONFIG: ProjectDetails = {
 
   screenshots: [
     {
-      src: "/referenzen/woocommer-warenkorb-versandkostenfrei.png",
+      src: "/freeshipping-wordpress-code.png",
+      type: "screenshot",
       url: "Shop-Frontend",
       alt: "Versandkostenfrei Fortschritt",
-      description: "Anzeige des Fortschrittsbalkens zur Versandkostenfreiheit im Warenkorb.",
-    }
+      description:
+        "Anzeige des Fortschrittsbalkens zur Versandkostenfreiheit im Warenkorb.",
+    },
   ],
   code: [
     {
       filename: "free-shipping-progress.php",
       language: "php",
       description: "Hauptklasse für die Versandkostenfrei-Fortschrittsanzeige",
-      code: `class WC_Free_Shipping_Progress {
-    private $free_shipping_min_amount;
-    private $display_locations;
-    private $progress_bar_color;
-    
-    public function __construct() {
-        // Einstellungen laden
-        $this->free_shipping_min_amount = $this->get_free_shipping_minimum();
-        $this->display_locations = get_option('fsp_display_locations', array('cart', 'checkout', 'header'));
-        $this->progress_bar_color = get_option('fsp_progress_bar_color', '#4CAF50');
-        
-        // Hooks für verschiedene Anzeigeorte
-        if (in_array('cart', $this->display_locations)) {
-            add_action('woocommerce_before_cart', array($this, 'display_progress_bar'));
+      code: `/**
+ * Autor:       www.coden-lassen.de
+ * Code:        Anzeige für den kostenlosen Versand im Warenkorb
+ * Einbidung:   copy paste in die functions.php des childthemes
+**/
+
+/* START copy from here for functions.php */
+
+add_filter( 'woocommerce_package_rates', 'codenlassen_hide_if_free_shipping', 10, 2 );
+ 
+function codenlassen_hide_if_free_shipping( $rates, $package ) {
+ 
+    $free = array();
+    foreach ( $rates as $rate_id => $rate ) {
+        if ( 'free_shipping' === $rate->method_id ) {
+            $free[ $rate_id ] = $rate;
+            break;
         }
-        
-        if (in_array('checkout', $this->display_locations)) {
-            add_action('woocommerce_checkout_before_order_review', array($this, 'display_progress_bar'));
-        }
-        
-        if (in_array('header', $this->display_locations)) {
-            add_action('wp_footer', array($this, 'add_header_progress_bar'));
-        }
-        
-        if (in_array('product', $this->display_locations)) {
-            add_action('woocommerce_after_add_to_cart_form', array($this, 'display_progress_bar'));
-        }
-        
-        // AJAX-Handler für Warenkorb-Updates
-        add_action('wp_ajax_update_shipping_progress', array($this, 'ajax_update_progress'));
-        add_action('wp_ajax_nopriv_update_shipping_progress', array($this, 'ajax_update_progress'));
-        
-        // Assets registrieren
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-        
-        // Admin-Bereich
-        add_action('admin_menu', array($this, 'add_admin_menu'));
-        add_action('admin_init', array($this, 'register_settings'));
     }
+    return ! empty( $free ) ? $free : $rates;
+ 
+}
+ 
+add_action( 'woocommerce_after_cart_totals', 'codenlassen_free_shipping' );
+function codenlassen_free_shipping() {
+ 
+    $free_shipping_ab = 99; // dein Wert
+
+    $shipping_total = WC()->cart->get_shipping_total();
+
+    if ( !isset($shipping_total) || !is_numeric($shipping_total)) {
+        $shipping_total = 1;
+      }
+      
     
-    public function display_progress_bar() {
-        // Aktuellen Warenkorbbetrag ermitteln
-        $cart_total = WC()->cart->get_displayed_subtotal();
+    if ( $free_shipping_ab > 0 && $shipping_total > 0 ) {
+    
+        $cart_total = WC()->cart->subtotal;
+        $fehlt_betrag = $free_shipping_ab - $cart_total;
         
-        // Wenn keine Versandkostenminimum gefunden oder Warenkorb leer
-        if (!$this->free_shipping_min_amount || $cart_total <= 0) {
-            return;
-        }
+        $prozent = $cart_total / $free_shipping_ab * 100;
+        $prozent = round($prozent);
         
-        // Fortschritt berechnen
-        $progress = min(100, ($cart_total / $this->free_shipping_min_amount) * 100);
-        $remaining = max(0, $this->free_shipping_min_amount - $cart_total);
-        
-        // HTML-Ausgabe
-        ?>
-        <div class="free-shipping-progress-container">
-            <?php if ($progress < 100) : ?>
-                <p><?php printf(__('Fügen Sie Produkte im Wert von %s hinzu, um von kostenlosem Versand zu profitieren!', 'free-shipping-progress'), wc_price($remaining)); ?></p>
-            <?php else : ?>
-                <p><?php _e('Sie erhalten kostenlosen Versand!', 'free-shipping-progress'); ?></p>
-            <?php endif; ?>
-            
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: <?php echo esc_attr($progress); ?>%; background-color: <?php echo esc_attr($this->progress_bar_color); ?>"></div>
+        if ( $fehlt_betrag > 0 ) {
+            ?>
+            <style>
+            .freeshipping_machenlassen_text {
+                font-size: 12px;
+                display: block;
+                text-align: right;
+            }
+            .freeshipping_machenlassen_text .woocommerce-Price-amount {
+                font-weight: normal !important;
+                font-size: 12px;
+            }
+            .freeshipping_machenlassen_noch .woocommerce-Price-amount {
+                font-weight: normal !important;
+                font-size: 14px;
+            }
+            .freeshipping_machenlassen {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: block;
+                font-size: 14px;
+            }
+            .freeshipping_machenlassen_progress {
+                height: 20px;
+                background: #eee;
+                border: 1px solid #ccc;
+                width: 100%;
+                display: block;
+                border-radius: 4px;
+            }
+            .freeshipping_machenlassen_progress_bar {
+                background: var(--primary-color);
+                height: 18px;
+                display: block;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                vertical-align: middle;
+                display: block;
+                text-align: center;
+                line-height: 18px;
+                color: #fff !important;
+                font-size: 12px;
+                font-weight: normal;
+            }
+            </style>
+            <div class="freeshipping_machenlassen">
+                <span class="freeshipping_machenlassen_noch">Noch <?php echo wp_kses_post( wc_price($fehlt_betrag) ) ?> bis zum kostenfreien Versand.</span>
+                <span class="freeshipping_machenlassen_progress">
+                <span style="width:<?php echo esc_html( $prozent ) ?>%" class="freeshipping_machenlassen_progress_bar">
+                <?php echo esc_html( $prozent ) ?>%
+                </span>
+                </span>
+                <span class="freeshipping_machenlassen_text">kostenfreier Versand ab <?php echo wp_kses_post( wc_price($free_shipping_ab) ) ?></span>
             </div>
-            
-            <?php if ($progress < 100) : ?>
-                <div class="recommended-products">
-                    <?php $this->display_product_recommendations($remaining); ?>
-                </div>
-            <?php endif; ?>
-        </div>
-        <?php
-    }
-    
-    private function get_free_shipping_minimum() {
-        $free_shipping_methods = array();
-        
-        // WooCommerce Versandklassen durchsuchen
-        $shipping_methods = WC()->shipping()->get_shipping_methods();
-        
-        if (isset($shipping_methods['free_shipping'])) {
-            $free_shipping = $shipping_methods['free_shipping'];
-            
-            if ($free_shipping->is_enabled() && $free_shipping->min_amount > 0) {
-                return $free_shipping->min_amount;
+            <?php
+        }
+        else {
+            ?>
+            <style>
+            .woocommerce-shipping-calculator {
+                display: none !important;
             }
+            </style>
+            <?php
         }
         
-        // Versandzonen durchsuchen (für erweiterte Konfigurationen)
-        $zones = WC_Shipping_Zones::get_zones();
-        foreach ($zones as $zone) {
-            foreach ($zone['shipping_methods'] as $method) {
-                if ($method->id === 'free_shipping' && $method->is_enabled()) {
-                    if (isset($method->min_amount) && $method->min_amount > 0) {
-                        $free_shipping_methods[] = $method->min_amount;
-                    }
-                }
-            }
-        }
-        
-        // Kleinsten Betrag zurückgeben, falls mehrere existieren
-        return !empty($free_shipping_methods) ? min($free_shipping_methods) : false;
     }
-    
-    // Weitere Methoden...
-}`,
+        
+}
+        
+/* END copy from here for functions.php */`,
     },
   ],
 };

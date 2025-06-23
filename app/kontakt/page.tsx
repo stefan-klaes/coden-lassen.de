@@ -44,6 +44,7 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           replyTo: data.email,
+          replyToName: data.name,
           subject: data.subject,
           text: data.message,
         }),
@@ -51,7 +52,7 @@ export default function ContactPage() {
       const result = await res.json();
       if (!result.success) throw new Error(result.error || "Fehler beim Senden der Nachricht.");
       setSuccess(true);
-      form.reset();
+      //form.reset();
     } catch (error) {
       console.error(error);
       toast.error("E-Mail konnte nicht gesendet werden.");

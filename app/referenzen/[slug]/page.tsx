@@ -11,6 +11,8 @@ import { Metadata } from "next";
 import Link from "@/components/ui/custom-link";
 import { Button } from "@/components/ui/button";
 import PaperImage from "@/components/blocks/paper-image";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -150,7 +152,20 @@ export default async function ReferenzPage({
                       {screenshot.description}
                     </p>
                   ) : null}
-                  <Screenshot url={screenshot.url} src={screenshot.src} />
+                  {screenshot.type && screenshot.type === "other" ? (
+                    <Image
+                      src={screenshot.src}
+                      alt="Screenshot"
+                      width={1280}
+                      height={800}
+                      className={cn(
+                        "w-full h-auto max-w-[300px] shadow rounded",
+                        screenshot.className
+                      )}
+                    />
+                  ) : (
+                    <Screenshot url={screenshot.url} src={screenshot.src} />
+                  )}
                 </div>
               ))}
             </div>
