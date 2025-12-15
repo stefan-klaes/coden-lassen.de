@@ -12,8 +12,7 @@ import {
   customMarkdownItems,
 } from "@/config/blog/utils/create-table-of-content";
 import Link from "@/components/ui/custom-link";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import SyntaxHighlighter from "@/components/ui/syntax-highlighter";
 import { Code } from "lucide-react";
 import AnfrageCTA from "@/components/blocks/cta-contact";
 
@@ -150,18 +149,7 @@ async function RenderArticleContent({ content }: { content: BlogArticle }) {
                   <span className="text-sm font-mono">{block.lang}</span>
                 </div>
                 <div className="overflow-x-auto max-w-full">
-                  <SyntaxHighlighter
-                    language={block.lang}
-                    style={github}
-                    customStyle={{
-                      margin: 0,
-                      padding: "1.5rem",
-                      borderRadius: "0 0 0.5rem 0.5rem",
-                      fontSize: "0.9rem",
-                    }}
-                  >
-                    {block.content}
-                  </SyntaxHighlighter>
+                  <SyntaxHighlighter>{block.content}</SyntaxHighlighter>
                 </div>
               </div>
             </div>

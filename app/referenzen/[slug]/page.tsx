@@ -5,8 +5,7 @@ import { PROJECT_DETAILS } from "@/config/projects/project-details";
 import { PROJECTS } from "@/config/projects/projects";
 import { Code, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import SyntaxHighlighter from "@/components/ui/syntax-highlighter";
 import { Metadata } from "next";
 import Link from "@/components/ui/custom-link";
 import { Button } from "@/components/ui/button";
@@ -184,18 +183,7 @@ export default async function ReferenzPage({
                       <Code className="h-4 w-4" />
                       <span className="text-sm font-mono">{item.filename}</span>
                     </div>
-                    <SyntaxHighlighter
-                      language={item.language}
-                      style={github}
-                      customStyle={{
-                        margin: 0,
-                        padding: "1.5rem",
-                        borderRadius: "0 0 0.5rem 0.5rem",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      {item.code}
-                    </SyntaxHighlighter>
+                    <SyntaxHighlighter>{item.code}</SyntaxHighlighter>
                   </div>
                 </div>
               ))}

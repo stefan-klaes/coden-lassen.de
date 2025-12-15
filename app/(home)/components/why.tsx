@@ -1,7 +1,6 @@
 import type React from "react";
 import { Code, FileCode, LucideIcon, Shield, Zap } from "lucide-react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import SyntaxHighlighter from "@/components/ui/syntax-highlighter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import HeadStarter from "@/components/blocks/head-starter";
 
@@ -97,18 +96,7 @@ export function Why() {
                     <Code className="h-4 w-4" />
                     <span className="text-sm font-mono">{item.filename}</span>
                   </div>
-                  <SyntaxHighlighter
-                    language={item.language}
-                    style={github}
-                    customStyle={{
-                      margin: 0,
-                      padding: "1.5rem",
-                      borderRadius: "0 0 0.5rem 0.5rem",
-                      fontSize: "0.9rem",
-                    }}
-                  >
-                    {item.code}
-                  </SyntaxHighlighter>
+                  <SyntaxHighlighter>{item.code}</SyntaxHighlighter>
                 </div>
               </CardContent>
             </Card>
