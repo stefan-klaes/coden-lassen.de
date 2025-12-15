@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { BLOG_POSTS } from "@/config/blog/blog-posts";
 import { ImageResponse } from "next/og";
 import CodeEditorComponent from "./components/code-editor";

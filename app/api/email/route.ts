@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { NextRequest, NextResponse } from "next/server";
 import { sendEmail } from "@/lib/email/send-email";
 
@@ -9,7 +7,10 @@ export async function POST(req: NextRequest) {
 
     // Validate required fields
     if (!data.replyTo || !data.subject || !data.text) {
-      return NextResponse.json({ success: false, error: "Missing required fields." });
+      return NextResponse.json({
+        success: false,
+        error: "Missing required fields.",
+      });
     }
 
     await sendEmail({
