@@ -19,7 +19,7 @@
 
 # production
 /build
-.open-next
+/.open-next
 
 # misc
 .DS_Store
