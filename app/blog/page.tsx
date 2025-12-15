@@ -24,7 +24,7 @@ export default function BlogPage() {
           <Link key={i} href={`/blog/${post.slug}`} className="block">
             <div className="hover:bg-accent hover:border-zinc-400 transition delay-75 border rounded overflow-hidden h-full">
               <Image
-                src={`/api/image/${post.slug}/thumbnail.png`}
+                src={`/blog/${post.slug}.png`}
                 alt={post.title}
                 width={800}
                 height={450}

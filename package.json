@@ -12,7 +12,8 @@
     "cloudflare-upload": "opennextjs-cloudflare upload",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "size-check": "wrangler deploy --outdir bundled/ --dry-run"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

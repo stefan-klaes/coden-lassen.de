@@ -48,10 +48,6 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   tags: string[];
-  thumbnail: {
-    config: Thumbnail;
-    motiv: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8";
-  };
   cta?: {
     title?: string;
     description?: string;

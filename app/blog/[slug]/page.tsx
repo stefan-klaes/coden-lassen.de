@@ -78,7 +78,7 @@ export default async function BlopgArticlePage({
             </div>
           </div>
           <Image
-            src={`/api/image/${article.slug}/thumbnail.png`}
+            src={`/blog/${article.slug}.png`}
             alt={article.title}
             width={1600}
             height={900}
