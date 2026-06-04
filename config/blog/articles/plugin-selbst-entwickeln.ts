@@ -58,7 +58,7 @@ Die Hauptdatei enthält die Plugin-Metadaten und den eigentlichen Code. So sieht
  * Author URI:        https://www.coden-lassen.de/wordpress-freelancer
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       simplest-anlytics
+ * Text Domain:       simplest-analytics
  * Domain Path:       /languages
  */
 

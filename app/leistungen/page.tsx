@@ -31,7 +31,7 @@ export default function LeistungenPage() {
         <Workflow />
         <Why />
         <AnfrageCTA
-          description="Jetzt unverbindlich anfragen! Ich setze sowohl, kleinere Anpassungen als auch größere Entwicklungen in WordPress zum Festpreis um."
+          description="Jetzt unverbindlich anfragen! Ich setze sowohl kleinere Anpassungen als auch größere Entwicklungen in WordPress zum Festpreis um."
           secondaryBotton={{
             href: "/referenzen",
             label: "Referenzen",

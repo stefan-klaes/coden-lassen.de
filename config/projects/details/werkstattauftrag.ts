@@ -41,9 +41,9 @@ const CONFIG: ProjectDetails = {
     },
     {
       src: "/woocommerce-neue-email.png",
-      url: "Woocmmerce > Einstellungen",
-      alt: "Woocommerce Email Screenshot",
-      description: "Zusätzliche Woocommerce E-Mail für Werkstattaufträge",
+      url: "WooCommerce > Einstellungen",
+      alt: "WooCommerce E-Mail Screenshot",
+      description: "Zusätzliche WooCommerce-E-Mail für Werkstattaufträge",
     },
   ],
   code: [

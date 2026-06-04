@@ -8,7 +8,7 @@ import Link from "@/components/ui/custom-link";
 const CODING_ICONS = [
   { name: "PHP", icon: CodeIcons.php },
   { name: "WordPress", icon: CodeIcons.wordpress },
-  { name: "Javascript", icon: CodeIcons.javascript },
+  { name: "JavaScript", icon: CodeIcons.javascript },
   { name: "HTML", icon: CodeIcons.html },
   { name: "MySQL", icon: CodeIcons.mysql },
   { name: "CSS", icon: CodeIcons.css },

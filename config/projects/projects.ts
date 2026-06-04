@@ -15,7 +15,7 @@ export const PROJECTS = [
     image: "/referenzen/simplest-analytics-drawed.png",
     description: "Offizielle WordPress Plugin für Simplest Analytics",
     excerpt:
-      "Plugin im WordPress Plugin Verzeichnis, das basis Analytics für WordPress bereitstellt.",
+      "Plugin im WordPress Plugin-Verzeichnis, das einfache Analytics für WordPress bereitstellt.",
     emoji: "📈",
     tags: ["Analytics", "Plugin"],
   },
@@ -107,7 +107,7 @@ export const PROJECTS = [
     excerpt:
       "Zeigen Sie den Fortschritt zu einem versandkostenfreien Warenkorb an. Eine einfache Lösung, um Kunden zu motivieren, mehr zu kaufen.",
     emoji: "🎫",
-    tags: ["Woocommerce", "Versand"],
+    tags: ["WooCommerce", "Versand"],
   },
 ] as const;
 

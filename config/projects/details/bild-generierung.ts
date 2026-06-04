@@ -29,7 +29,7 @@ const CONFIG: ProjectDetails = {
       url: "",
       type: "other",
       alt: "Automatische Bildgenerierung",
-      description: "Beispiel für eine automatisch generierte Bild.",
+      description: "Beispiel für ein automatisch generiertes Bild.",
     },
   ],
 };

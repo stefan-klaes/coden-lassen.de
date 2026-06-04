@@ -22,16 +22,16 @@ export default function CoreServices() {
         </div>
         <div className="space-y-4">
           <Typography variant="h2">
-            Individuelles WordPress Plugin als Lösung für deine Anfroderungen
+            Individuelles WordPress Plugin als Lösung für deine Anforderungen
           </Typography>
           <p>
             WordPress bietet über Plugins eine hervorragende Möglichkeit, die
-            Funktionalität <span className="font-semibold">update sicher</span>{" "}
+            Funktionalität <span className="font-semibold">updatesicher</span>{" "}
             zu erweitern.
           </p>
           <p>
             Ich liefere meine Programmierungen aus den folgenden Gründen sehr
-            häufig in Form eines WordPress Plugis:
+            häufig in Form eines WordPress Plugins:
           </p>
           <div className="grid gap-2">
             {[

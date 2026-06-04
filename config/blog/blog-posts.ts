@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     cta: {
       title: "Individuelle WordPress Programmierung benötigt?",
       description:
-        "Egal, ob shortcodes oder andere Anpassungen, ich helfe dir gerne.",
+        "Egal ob Shortcodes oder andere Anpassungen – ich helfe dir gerne.",
     },
   },
   {
@@ -32,7 +32,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ["WordPress", "Plugins", "Entwicklung"],
     cta: {
       title: "WordPress Plugin erstellen lassen?",
-      description: "Ich entwickel individuelle Plugins für meine Kunden.",
+      description: "Ich entwickle individuelle Plugins für meine Kunden.",
     },
   },
   {

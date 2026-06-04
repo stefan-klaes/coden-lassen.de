@@ -41,7 +41,7 @@ $email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : "" ;`,
  * TODO: PDF-Dokumente erstellen und speichern
  */
 
-/* Woocommerce Bestellüberprüfung
+/* WooCommerce Bestellüberprüfung
  * TODO: Regeln für die Überprüfung der Bestellung einbauen
  */
 

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Stefan Klaes - WordPress Entwickler",
   description:
-    "Erfahrener WordPress-Entwickler und Webentwickler aus Deutschland. Individuelle WordPress-Lösungen, Themes und Plugins für Unternehmen und Agenturen.",
+    "Erfahrener WordPress Entwickler und Webentwickler aus Deutschland. Individuelle WordPress Lösungen, Themes und Plugins für Unternehmen und Agenturen.",
 };
 
 export default function RootLayout({

@@ -64,7 +64,7 @@ function AboutMeChat() {
       sender: "Stefan",
       text: (
         <>
-          👋 Hi! Ich entwickle <b>individuelle WordPress-Lösungen</b> – von
+          👋 Hi! Ich entwickle <b>individuelle WordPress Lösungen</b> – von
           Plugins bis zu maßgeschneiderten Erweiterungen. Dabei nutze ich{" "}
           <b>PHP, MySQL, JavaScript, HTML und CSS</b>.
         </>

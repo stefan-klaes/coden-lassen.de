@@ -26,7 +26,7 @@ export default function AboutMe({ type }: { type?: "aboutme" }) {
           emoji: "📍  ",
         },
         {
-          label: "arbeite remote (ganz Deutschland)",
+          label: "Arbeite remote (ganz Deutschland)",
           emoji: "🏠  ",
         },
         {

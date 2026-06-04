@@ -17,7 +17,7 @@ const CONFIG: ProjectDetails = {
     "Transparenz bei Versandkosten als Faktor der Kundenzufriedenheit",
   ],
 
-  solution: `Die implementierte WooCommerce-Lösung zeigt einen visuell ansprechenden Fortschrittsbalken an prominenten Stellen wie Warenkorb, Produktseiten und Header. Mit AJAX-getriebener Echtzeit-Aktualisierung ohne Seitenneuladen reagiert das System sofort auf Warenkorbänderungen. Ein intelligenter Algorithmus berücksichtigt komplexe Versandregeln und bietet personalisierte Produktempfehlungen, um die Versandkostenfreiheit zu erreichen. Das responsive Design passt sich allen Bildschirmgrößen an, während umfangreiche Konfigurationsmöglichkeiten die Anpassung von Design, Position und Messaging ermöglichen. Analytics-Funktionen bieten Einblick in das Kundenverhalten in Bezug auf die Versandkostenschwelle.`,
+  solution: `Die implementierte WooCommerce-Lösung zeigt einen visuell ansprechenden Fortschrittsbalken an prominenten Stellen wie Warenkorb, Produktseiten und Header. Mit AJAX-getriebener Echtzeit-Aktualisierung ohne Seitenneuladen reagiert das System sofort auf Änderungen am Warenkorb. Ein intelligenter Algorithmus berücksichtigt komplexe Versandregeln und bietet personalisierte Produktempfehlungen, um die Versandkostenfreiheit zu erreichen. Das responsive Design passt sich allen Bildschirmgrößen an, während umfangreiche Konfigurationsmöglichkeiten die Anpassung von Design, Position und Messaging ermöglichen. Analytics-Funktionen bieten Einblick in das Kundenverhalten in Bezug auf die Versandkostenschwelle.`,
 
   technologies: [
     "PHP",
@@ -49,7 +49,7 @@ const CONFIG: ProjectDetails = {
       code: `/**
  * Autor:       www.coden-lassen.de
  * Code:        Anzeige für den kostenlosen Versand im Warenkorb
- * Einbidung:   copy paste in die functions.php des childthemes
+ * Einbindung:  copy paste in die functions.php des Child-Themes
 **/
 
 /* START copy from here for functions.php */
