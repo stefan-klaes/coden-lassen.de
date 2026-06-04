@@ -57,8 +57,8 @@ Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
 Stefan Klaes  
 coden lassen  
-Alter Kirchweg 5  
-27404 Elsdorf  
+Polluxstr. 6  
+27356 Rotenburg (Wümme)  
 Deutschland
 
 E-Mail: stefan@coden-lassen.de

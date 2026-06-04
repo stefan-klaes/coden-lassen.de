@@ -3,8 +3,8 @@ export const IMPRESSUM = `# Impressum
 ## Angaben gemäß § 5 TMG  
 Stefan Klaes  
 coden lassen  
-Alter Kirchweg 5  
-27404 Elsdorf
+Polluxstr. 6  
+27356 Rotenburg (Wümme)
 
 ## Kontakt  
 E-Mail: stefan@coden-lassen.de

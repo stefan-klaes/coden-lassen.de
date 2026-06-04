@@ -22,7 +22,7 @@ export default function AboutMe({ type }: { type?: "aboutme" }) {
           emoji: "💻  ",
         },
         {
-          label: "Elsdorf (zw. Hamburg und Bremen)",
+          label: "Rotenburg (zw. Hamburg und Bremen)",
           emoji: "📍  ",
         },
         {
