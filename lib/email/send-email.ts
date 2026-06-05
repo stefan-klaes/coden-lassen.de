@@ -27,7 +27,7 @@ export async function sendEmail({
     : replyTo;
 
   const { data, error } = await resend.emails.send({
-    from: "Kontaktformular <kontakt@coden-lassen.de>",
+    from: "Kontaktformular <kontakt@mail.coden-lassen.de>",
     to: ["stefan@coden-lassen.de"],
     replyTo: replyToAddress,
     subject,
